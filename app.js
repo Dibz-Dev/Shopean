@@ -6,6 +6,7 @@ const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const { pageAuth, displayUser } = require('./authMiddle/pageAuth');
 const Item = require('./models/Items');
+require('dotenv').config();
 
 
 // ----------- SCHEMA MODELS-----------
@@ -14,7 +15,7 @@ const Item = require('./models/Items');
 
 const app = express()
 
-const dbURI = 'mongodb+srv://BenDibley:bitshow2251@cluster0.nstdf.mongodb.net/Shoppean?retryWrites=true&w=majority';
+const dbURI = process.env.API_KEY;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 .then((result) => app.listen(3000))

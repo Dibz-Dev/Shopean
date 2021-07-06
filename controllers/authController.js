@@ -1,6 +1,7 @@
 const Profile = require('../models/Profiles');
 const Item = require('../models/Items');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 
 
@@ -45,7 +46,7 @@ return errors;
 
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
-    return jwt.sign({ id }, 'new zealand is the best country in the world', {
+    return jwt.sign({ id }, process.env.SECRET_JWT, {
         expiresIn: maxAge 
     });
 } 
@@ -76,20 +77,7 @@ module.exports.home_post = (req, res) => {
 
 
 
-    // module.exports.home_post = (req, res, Item) => {
-    
-    
-    //     const findItem = () => {
-    
-    //    const item = req.body.item;
-
-    //     .then((item) => {
-    //         console.log(item)
-    //     }).catch((err) => console.log(err))
-        
-    // }
-    //     }
-
+   
 module.exports.signup_get = (req, res) => {
     res.render('signup')
 }
