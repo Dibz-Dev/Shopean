@@ -1,0 +1,521 @@
+
+
+
+
+
+/* ----------------------------HEADER----------------------------------------- */
+
+
+:root {
+    font-family: 'karla', sans-serif;
+
+}
+
+body {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    min-height:100vh;
+}
+
+#body {
+    padding-bottom: 70px;
+}
+
+.welcome-message {
+    margin-top: 150px;
+    font-family: 'karla', sans-serif;
+    font-size: 1em;
+    padding: 0 25px;
+    letter-spacing: 0.2em;
+    color: black;
+}
+
+
+
+    /* ------------------------FORM/INPUT---------------------------------------- */
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+
+input.search-item{
+    
+    font-size: 1.4em;
+    border-radius: 3px;
+    border-bottom:1px solid black;
+    border-left:1px solid black;
+    border-top:none;
+    border-right: none;
+    height:30px;
+    color: black;
+    font-family: 'karla', sans-serif;
+    outline: none;
+    width:80%;
+    
+    }
+input:focus{
+    outline: none;
+ 
+    
+}
+::placeholder{
+    color:rgb(214, 210, 210);
+
+}
+
+li{
+    cursor: pointer;
+}
+
+/* -------------------------------------NEW LAYOUT--------------------------- */
+
+.shopping-section {
+    margin-top: 10px;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 5px;
+   
+   
+}
+ .item-sect {
+    height:35px;
+    width:80%;
+    margin:auto;
+    outline:none;
+    border:none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: rgb(91, 172, 204);
+    
+} 
+
+/* ----------------------------CATEGORY BACKGROUNDS--------------------- */
+/* .bakery-wrapper {
+    background-color: rgb(163, 109, 85);
+}
+.cleaning-wrapper {
+    background-color: lightblue;
+}
+.toiletries-wrapper {
+    background-color: cornflowerblue;
+}
+.kitchen-acc-wrapper {
+    background-color: steelblue;
+}
+.dry-goods-wrapper {
+    background-color: slategray;
+}
+.fresh-veg-wrapper {
+    background-color: green;
+}
+.fresh-fruit-wrapper {
+    background-color: orangered;
+}
+.dairy-wrapper {
+    background-color: yellow;
+}
+.meat-wrapper {
+    background-color: red;
+}
+.seafood-wrapper {
+    background-color: blue;
+}
+.frozen-wrapper {
+    background-color: steelblue;
+}
+.beverages-wrapper {
+    background-color: orange;
+} */
+
+.item-sect:hover {
+    transform: scale(1.02);
+}
+
+.test {
+    margin-top:8px;
+    margin-right: 8.7px;
+    width:17px;
+    height:17px;
+    border-radius: 100%;
+    border:1.5px solid red;
+}
+.test p {
+    position: absolute;
+    bottom:-22%;
+    right:6%;
+    color:red;
+} 
+
+h4 {
+    margin-top: 10px;
+    margin-left: 5px;
+    color:white;
+}
+
+.results-list {
+    width:80%;
+    margin:auto;
+}
+
+.results-items{
+    text-align:start;
+    height: 50px;
+    width:80%;
+    margin:5px auto;
+    outline: 1px solid black;
+    cursor: pointer;
+    
+    
+
+}
+.item-auto-style {
+    margin:0;
+    padding: 10px 0 0 10px;
+
+}
+
+.sub-cat {
+    font-size: 0.7em;
+    color:grey;
+    padding-left: 10px;
+}
+
+
+
+
+.uncheck{
+    position: relative;
+    background-color: rgb(204, 202, 202);
+    list-style:none;
+    display: flex;
+    max-width: 60px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: 'karla', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    font-size:0.7em;
+    text-align: center;
+    background-color: tan;
+
+   
+    
+   
+}
+
+.check{
+    position: relative;
+    background-color: rgb(204, 202, 202);
+    list-style:none;
+    display: flex;
+    max-width: 80px;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 15px;
+    border-radius: 5px;
+    font-family: 'karla', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    font-size: 0.8em;
+    background-color: springgreen;
+    text-decoration: line-through;
+   
+} 
+
+
+ .s-list{
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat (1fr );
+    grid-gap: 5px;
+    justify-content: start;
+    margin:10px 0;
+    padding: 10px;
+    
+    
+
+}
+/* ----------------------------------------------------------------------------- */
+/* ---------------------------------SHOPPING LIST-------------------------------- */
+ .shopping-wrapper{
+    position:relative;
+    margin:auto;
+    width:80%;
+    max-width:80%;
+    display:none;
+   
+} 
+
+.shopping-wrapper.active{
+    position:relative;
+    margin:-5px auto 10px auto;
+    width:80%;
+    max-width:78%;
+    display:block;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    
+    
+    
+   
+} 
+
+
+/* --------------------------------LOGIN------------------------------- */
+
+form#login, form#signUp {
+   position: absolute;
+   top:170px;
+
+}
+
+.login {
+
+    width: 80%;
+    margin-left: 10%;
+    
+}
+
+
+.username-box, .password-box {
+    display:flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin:auto;
+   
+
+}
+
+.username-box input, .password-box input {
+    height:30px;
+
+
+}
+
+
+
+.choices {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    padding:0;
+}
+
+.signlog-choice {
+    display: flex;
+    padding: 0;
+    justify-content: center;
+   
+}
+
+.list-choice {
+    text-decoration: none;
+    padding: 5px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: rgb(91, 172, 204);
+    outline: none;
+    border:none;
+    
+}
+
+.list-choice.active {
+  display: none;
+    
+}
+
+.a-log, .a-sign {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    font-family:'pacifico', sans-serif ;
+    letter-spacing: 0.2em;
+
+}
+.a-log.active, .a-sign.active {
+    display: none;
+    
+}
+
+/* ---------------------------------signup------------------------------------- */
+
+.name, .signup-info {
+    display:flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin:auto;
+    
+   
+
+}
+.signUp {
+
+    width:80%;
+    margin-left:10%;
+}
+
+label {
+    padding:5px 0px;    
+}
+
+.name input, .signup-info input {
+    height: 30px
+}
+
+  /* ---------------------------------Create----------------------------- */
+
+.add-item {
+    display: flex;
+    flex-direction: column;
+    padding:0;
+    max-width: 100%;
+   
+   
+    
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    color: white;
+    z-index: 5;
+
+   
+}
+
+.item-name input, .category input {
+    width:200px;
+   
+}
+
+.group input {
+    width:50px;
+}
+
+.add-btn, .login-btn, .oops-btn, .signup-btn, .create-item-btn, .clear-btn {
+    margin-top: 5px;
+    margin: auto;
+    padding:5px 15px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid lightblue;
+    background-color: red;
+    cursor: pointer;
+    color: white;
+   
+}
+
+.login-btn {
+    margin-top: 15px;
+}
+
+.signup-btn {
+    margin-top: 15px;
+}
+
+.add-btn {
+    margin-top: 20px;
+    z-index: 5;
+}
+
+.create-item-btn {
+    margin-left: 140px;
+    transform: translate(-50%);
+    margin-top:110px;
+    z-index: -1;
+    
+    
+}
+
+
+    .create-overlay {
+        display: none;
+        position: fixed;
+        top:0%;
+        bottom:0%;
+        left:0%;
+        right:0%;
+        background-color: rgb(58, 56, 56);
+        opacity: 0%;
+        
+    }
+    .create-close {
+        position: absolute;
+        bottom:-27px;
+        left:9px;
+        color: white;
+        z-index: 5;
+        cursor: pointer;
+        font-size: 2.5em;
+
+    }
+
+    
+
+  
+    option {
+        font-size: 0.7em;
+        overflow: scroll;
+    }
+
+    .times-border {
+        position:relative;
+        margin: 80px auto;
+        border:1px solid white;
+        border-radius: 50%;
+        z-index: 5;
+        width:40px;
+        height:40px;
+    }
+
+    h3 {
+        color: white;
+        margin-top: 120px;
+    }
+
+    .modal-wrapper {
+        display:none;
+        z-index: 5;
+        
+    }
+
+    .create-overlay.active {
+        display: block;
+        opacity: 98%;
+        z-index: 5;
+        
+    }
+
+    .modal-wrapper.active {
+      display:inline-block;
+      margin:auto;
+    }
+
+    .password-error, .email-error {
+        color:red;
+        font-weight: bold;
+        background-color: rgba(255, 0, 0, 0.315);
+        
+        
+        
+    }
+
+
+
+
+

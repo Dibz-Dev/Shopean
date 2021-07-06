@@ -1,37 +1,79 @@
-const addItem = document.querySelector('.add');
-const input = document.querySelector('.inputValue')
-const items = document.querySelector('.s-list')
 
-const generateTemplate = list => {
+const express = require('express');
+const session = require('express-session');
+const mongoose = require('mongoose');
+const authRoutes = require('./routes/authRoutes');
+const cookieParser = require('cookie-parser');
+const { pageAuth, displayUser } = require('./authMiddle/pageAuth');
+const Item = require('./models/Items');
 
 
-const html = `<li class="item d-flex list-group-item justify-content-between">
-<span>${list}</span>
-<i class="fas fa-trash-alt delete"></i>
-</li>`
-;
-
-items.innerHTML += html;
-
-};
+// ----------- SCHEMA MODELS-----------
 
 
 
-addItem.addEventListener('submit', e => {
+const app = express()
 
-    e.preventDefault();
-    const list = addItem.search.value.trim();
-    
-    if(list.length) {
-        generateTemplate(list);
-        addItem.reset();
+const dbURI = 'mongodb+srv://BenDibley:bitshow2251@cluster0.nstdf.mongodb.net/Shoppean?retryWrites=true&w=majority';
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+.then((result) => app.listen(3000))
+.catch((err) => console.log(err))
+
+
+
+// ---------ENGINE--------------
+app.set('view engine', 'ejs');
+
+
+// ---------MIDDLEWARE----------
+
+app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json()); 
+app.use(cookieParser());
+
+
+
+// ----------- ROUTES ------------
+app.get('*', displayUser);
+const getItem = async (req, res, next) => {
+    let item
+    try {
+        item = await Item.find(req.body.item);
+        if (item == null) {
+            return res.status(404).json({message: 'no item found, please create one'})
+        }
+
+    } catch (err) {
+        res.status(400).json({message: err.message})
     }
+    res.item = item;
+    next()
+}
+app.get('/home', pageAuth, getItem, (req, res) => {
+
+//     
+    
+    res.render('index') })
+
 
     
-});
+    
 
-items.addEventListener('click', e => {
-   if(e.target.classList.contains('delete')) {
-     e.target.parentElement.remove();
-   }
+app.use(authRoutes);
+
+
+
+
+app.use((req, res) => {
+    res.render('404')
 })
+
+
+
+
+
+
+
+ 
