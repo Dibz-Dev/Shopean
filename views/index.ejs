@@ -12,8 +12,8 @@
 <div class="welcome-wrapper">
       <p class="welcome-message"><span style="font-weight: bold; color: red;"><%= profile.firstname %>!</span>  Welcome back to Shopean </p>
       <button id="clear-btn" class="clear-btn">Clear list</button>
-    
 </div>
+
     <div>
        <div class="form-container">
             <form id="form-search" action="/home" class="form-style" >
@@ -24,154 +24,146 @@
         
     </div>
 <section id="shopping-section" class="shopping-section">
-      <div id="bake">
-            <div class="bakery-wrapper item-sect">
-                    <h4>Bakery</h4>
-                    
-            </div>
-            <div id="count">
+    
+<div id="bake" class="sub-flex-container">
+    <div class="bakery-wrapper item-sect"> <h4>Bakery</h4> </div>
+        <div class="count"> <h4 id="bake-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+    <div class="shopping-wrapper bake-drop">
+        <ul class="shopping s-list bakery"></ul>
+</div>
+</div>          
+        
+               
+<div id="clean" class="sub-flex-container">
+        <div class="cleaning-wrapper item-sect">  <h4>Cleaning</h4> </div>
+        <div class="count"> <h4 id="cleaning-count">list</h4> </div>
+    <div class="shopping-wrapper clean-drop" >
+        <ul class="shopping s-list cleaning"></ul>
+</div>
+</div>    
+               
+<div id="kitch" class="sub-flex-container">
+        <div class="kitchen-acc-wrapper item-sect">  <h4>Kitchen Accessories</h4>  </div>
+        <div class="count"> <h4 id="kitchen-count">list</h4> </div>    
+  <div class="shopping-wrapper kitch-drop" >
+     <ul class="shopping s-list kitchen-accessories"></ul>
+</div>           
+</div>            
                 
-            </div>
-             <div class="shopping-wrapper bake-drop">
-                    <ul class="shopping s-list bakery">
-                    </ul>
-            </div>
-      </div>
-    <div id="clean">
-            <div class="cleaning-wrapper item-sect">
-                    <h4>Cleaning</h4>
-            </div>     
-            <div id="cleaning-count"></div>
-            <div class="shopping-wrapper clean-drop" >
-                <ul class="shopping s-list cleaning">
-                </ul>
-            </div>
-    </div>  
+<div id="toilet" class="sub-flex-container">
+    <div class="toiletries-wrapper item-sect">  <h4>Toiletries</h4> </div>
+    <div class="count"> <h4 id="toilet-count">list</h4> </div>
+<div class="shopping-wrapper toilet-drop">
+    <ul class="shopping s-list toiletries"></ul>
+</div>
+</div>               
+    
+<div id="dry" class="sub-flex-container">
+    <div class="dry-goods-wrapper item-sect"> <h4>Dry goods</h4> </div>
+    <div class="count"> <h4 id="dry-count">list</h4> </div>
+<div class="shopping-wrapper dry-drop">
+    <ul class="shopping s-list dry-goods"></ul>
+</div>
+</div>             
             
+<div id="fruit" class="sub-flex-container">
+    <div class="fruit-veg-wrapper item-sect">  <h4>Fruit & Veggies</h4>   </div>
+    <div class="count"> <h4 id="fruit-count">list</h4> </div>
+<div class="shopping-wrapper fruit-drop" >
+   <ul class="shopping s-list fruit-veg"></ul>
+</div>             
+</div>              
     
+<div id="dairy" class="sub-flex-container">
+    <div class="dairy-wrapper item-sect"> <h4>Dairy</h4>  </div>
+    <div class="count"> <h4 id="dairy-count">list</h4> </div>   
+<div class="shopping-wrapper dairy-drop" >
+    <ul class="shopping s-list dairy"></ul>
+</div>          
+</div>                             
+    
+<div id="meat" class="sub-flex-container">
+    <div class="meat-wrapper item-sect"> <h4>Meat</h4>  </div>
+    <div class="count"> <h4 id="meat-count">list</h4> </div>
+<div class="shopping-wrapper meat-drop">
+    <ul class="shopping s-list meat"></ul>
+</div>
+</div>                   
+               
+<div id="sea" class="sub-flex-container">
+    <div class="seafood-wrapper item-sect">  <h4>Seafood</h4>  </div>
+    <div class="count"> <h4 id="sea-count">list</h4> </div>
+<div class="shopping-wrapper sea-drop">
+    <ul class="shopping s-list seafood"></ul>
+</div>
+</div>      
+
+<div id="froz" class="sub-flex-container">
+        <div class="frozen-wrapper item-sect"> <h4>Frozen</h4>  </div>
+        <div class="count"> <h4 id="frozen-count">list</h4> </div>
+    <div class="shopping-wrapper froz-drop" >
+         <ul class="shopping s-list frozen"> </ul>
+</div>         
+</div>               
             
-    <div id="kitch">
-            <div class="kitchen-acc-wrapper item-sect">
-                    <h4>Kitchen Accessories</h4>
-                    
-            </div>
-            <div id="kitchen-count"></div>
-                <div class="shopping-wrapper kitch-drop" >
-                        <ul class="shopping s-list kitchen-accessories">
-                        </ul>
-            </div>
-    </div>
-    <div id="toilet">
-            <div class="toiletries-wrapper item-sect">
-                    <h4>Toiletries</h4>
-                    
-            </div>
-            <div id="toilet-count"></div>
-            <div class="shopping-wrapper toilet-drop">
-                        <ul class="shopping s-list toiletries">
-                        </ul>
-            </div>
-    </div>
-    <div id="dry">
-            <div class="dry-goods-wrapper item-sect">
-                        <h4>Dry goods</h4>
-                        
-            </div>
-            <div id="dry-count"></div>
-            <div class="shopping-wrapper dry-drop">
-                        <ul class="shopping s-list dry-goods">
-                        </ul>
-             </div>
-    </div>
-    <div id="fruit">
-             <div class="fruit-veg-wrapper item-sect">
-                        <h4>Fruit & Veggies</h4>
-                        
-            </div>
-            <div id="fruit-count"></div>
-            <div class="shopping-wrapper fruit-drop" >
-                        <ul class="shopping s-list fruit-veg">
-                        </ul>
-            </div>
-    </div>
-    <div id="dairy">
-            <div class="dairy-wrapper item-sect">
-                        <h4>Dairy</h4>
-                        
-                            
-                        
-            </div>
-            <div id="dairy-count"></div>
-            <div class="shopping-wrapper dairy-drop" >
-                        <ul class="shopping s-list dairy">
-                        </ul>
-            </div>
-    </div>
-    
-   <div id="meat">
-             <div class="meat-wrapper item-sect">
-                <h4>Meat</h4>
-                 
-            </div>
-            <div id="meat-count"></div>
-       <div class="shopping-wrapper meat-drop">
-                    <ul class="shopping s-list meat">
-                    </ul>
-       </div>
-    </div>
-    <div id="sea">
-            <div class="seafood-wrapper item-sect">
-                    <h4>Seafood</h4>
-                    
-                      
-                    
-            </div>
-            <div id="sea-count"></div>
-        <div class="shopping-wrapper sea-drop" >
-                    <ul class="shopping s-list seafood">
-                    </ul>
-       </div>
-    </div>
-    <div id="froz">
-             <div class="frozen-wrapper item-sect">
-                    <h4>Frozen</h4>
-                    
-                        
-                    
-            </div>
-            <div id="frozen-count"></div>
-        <div class="shopping-wrapper froz-drop" >
-                    <ul class="shopping s-list frozen">
-                    </ul>
-       </div>
-    </div>
-    <div id="bev">
-            <div class="beverages-wrapper item-sect">
-                    <h4>Beverages</h4>
-                  
-                       
-                   
-            </div>
-            <div id="bev-count"></div>
-        <div class="shopping-wrapper bev-drop" >
-                    <ul class="shopping s-list beverages">
-                    </ul>
-       </div>
-    </div>
-    
-    
-</section>
+<div id="bev" class="sub-flex-container">
+    <div class="beverages-wrapper item-sect"> <h4>Beverages</h4>  </div>
+    <div class="count"> <h4 id="bev-count">list</h4> </div>
+<div class="shopping-wrapper bev-drop" >   
+    <ul class="shopping s-list beverages"></ul>
+</div>    
+</div>              
 
-
-
-
+</section>    
+           
    
-   
-
-
-
+  
+         
 <%- include('./partials/footer.ejs') %>
 
    
 </body>
-</html>
+</html> 
+           
+   
+    
+                        
+           
+           
+           
+   
+    
+   
+           
+            
+   
+    
+          
+            
+                      
+                    
+            
+    
+               
+               
+        
+                        
+                    
+           
+    
+           
+            
+        
+                   
+    
+    
+    
+
+
+
+
+
+   
+   
+
+

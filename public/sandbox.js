@@ -146,20 +146,20 @@ form.addEventListener('input', () => getItem(form.item.value))
  ul.forEach(list => {
 
   list.addEventListener('click', e => {
-
-    
   
 
-   if(e.target.classList.contains('uncheck')) {
-    e.target.setAttribute('class', 'check')
-    list.parentElement.previousElementSibling.innerHTML = i--;
-  } else if (e.target.classList.contains('check')) {
-    e.target.setAttribute('class', 'uncheck')
-   
-  }
- })
+    if(e.target.classList.contains('uncheck')) {
+      e.target.setAttribute('class', 'check')
+     
+    } else if (e.target.classList.contains('check')) {
+      e.target.setAttribute('class', 'uncheck')
+     }
+  
+    })
 
-});
+  });
+  
+ 
 
   
 
@@ -194,55 +194,40 @@ clearList.addEventListener('click', () => {
   let listWrapper = document.querySelectorAll('ul')
 
   localStorage.removeItem('elements');
-listWrapper.forEach(list => {
+  listWrapper.forEach(list => {
   list.innerHTML = '';
 })
 })
   
-
- 
- 
 
 // -----------------------------HOME PAGE INPUT FORM SUBMIT EVENT----------------
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
      outPut()
+    //  setTimeout(() => {
 
+    //   const store = document.getElementById('shopping-section')
+    //   localStorage.setItem('elements', store.innerHTML)
     
-
-     setTimeout(() => {
-
-      const store = document.getElementById('shopping-section')
-      localStorage.setItem('elements', store.innerHTML)
-    
-    },1000);
-    
-   
+    // },1000);
     
     form.reset();
     
   });
 
-   if(localStorage.getItem('elements')) {
-    dropDown.innerHTML = localStorage.getItem('elements')
-   } else {
-     console.log('data not available')
-   }
-  
+  const getStorage = () => {
 
-
-  
- 
- 
-
-     
-         
+    if(localStorage.getItem('elements')) {
+      dropDown.innerHTML = localStorage.getItem('elements')
+     } else {
+       console.log('data not available')
+     }
     
+  }
 
-
-
-
+//  getStorage()
+   
 // ------------------------CATEGORIES DROPDOWN EVENT LISTENERS---------------------------
       
 const meat = document.getElementById('meat');
@@ -257,14 +242,20 @@ meat.addEventListener('click', (e) => {
 
 
 const bake = document.getElementById('bake');
+const click = bake.querySelector('#bake-count')
 
-
-bake.addEventListener('click', (e) => {
+click.addEventListener('click', (e) => {
   
-    const child = document.querySelector('.bake-drop');
+    const clicky = bake.querySelector('.bakery-wrapper');
+    
+    const drop = bake.querySelector('.bake-drop')
 
-    child.classList.toggle('active')
+    if(e.target = 'div#bake-count') {
+      drop.classList.toggle('active')
+    }
 })
+
+    
 
 
 const clean = document.getElementById('clean');
