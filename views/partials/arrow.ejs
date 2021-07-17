@@ -1,25 +1,42 @@
-<div class="arrow-left"></div>
-<div class="arrow-right"></div>
+<div class="arrow arrow-left active"></div>
+<div class="arrow arrow-right active"></div>
 
 
 <style>
 
-
-.arrow-left, .arrow-right {
-position: absolute;
-background-color: black;
-height:20px;
-width:1px;
-
-
+.arrow-right.active {
+    margin-top: 3px;
+    transform: rotate(139deg);
+    transition: 0.3s;
 }
 
+.arrow-left.active {
+    margin-top: 3px;
+    transform: rotate(-137deg);
+    transition: 0.3s;
+}
 .arrow-right {
-    right: 8%;
+
+    position: absolute;
+    margin-top: 4px;
+    right: 10.4%;
+    transform: rotate(36deg);
+    background-color: white;
+    height:11px;
+    width:1px;
+    transition: 0.3s;
 }
 
 .arrow-left {
-    left: 58%;
+
+    position: absolute;
+    margin-top: 4px;
+    right: 12.4%;
+    transform: rotate(-36deg);
+    background-color: white;
+    height:11px;
+    width:1px;
+    transition: 0.3s;
     
 
 

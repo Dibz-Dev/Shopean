@@ -1,11 +1,11 @@
 <div id="menu-wrapper" class="menu-wrapper">
-    <div id="top" class="top "></div>
-    <div id="bottom" class="bottom "></div>
+    <div id="top" class="top"></div>
+    <div id="bottom" class="bottom"></div>
 </div>
-<div>
-    <p>Clear List</p>
-    <p id="create-item-modal">Create<br>Item</p>
-    <p><a href="/logout" class="param-logout">Log<br>out</a></p>
+<div class="menu-options">
+    <p id="top-menu-clear">Clear List</p>
+    <p id="create-item-modal">Create Item </p>
+    <p><a href="/logout" class="param-logout"> Log out</a></p>
 </div>
 
 
@@ -16,16 +16,45 @@
         top: 5%;
         right:5%;
         z-index: 5;
+        cursor: pointer;
+       
         
     }
 
-    .menu-wrapper.active {
-        display:flex;
-        position: fixed;
-        top: 0%;
-        right:0%;
-       
+    .menu-options {
+        display: flex;
+        justify-content: space-around;
+        margin-left: -200px;
+        margin-top: 70px;
+        width:200px;
+        transition: 0.5s;
     }
+
+   .menu-options.active {
+        
+        justify-content: space-around;
+        width: 100%;
+        background-color: rgba(204, 231, 240, 0.959);
+        margin-top: 70px;
+        transition: 2s;
+        margin-left: 0;
+        transition: 0.5s;
+
+   }
+
+   .menu-options p {
+      font-weight: 500;
+      color: rgb(35, 161, 211);
+      cursor: pointer;
+     
+    }
+    .menu-options p:hover{
+     
+      transform: scale(1.2);
+      font-weight: 800;
+      
+    }
+
 
     .top {
         height:2px;
@@ -34,7 +63,8 @@
         border-radius: 5px;
         padding:2px;
         margin-right: 7px;
-        animation-duration: 2s;
+        transform: rotate(0deg);
+        transition: 0.6s;
         
     }
 
@@ -48,59 +78,30 @@
         padding:2px;
         margin-right: 2px;
         margin-top: 5px;
-        animation-duration: 2s;
-        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-        
-        
-        
-
+        transform: rotate(0deg);
+        transition: 0.6s;
     }
 
     .top.active {
-        display:flex;
-        position: fixed;
-        align-items: center;
-        justify-content: center;
-        right:18.2%;
-        top:3%;
-        height:33px;
-        width:50px;
-        background-color: yellow;
-        animation-duration: 2s;
-     
-
-        
-       
-       
-    }
+    
+      transform: rotate(50deg);
+      transition: 0.3s;
+}
 
     .bottom.active {
-        display:flex;
-        position: fixed;
-        right:0%;
-        top:2.1%;
-        height:33px;
-        width:50px;
-        background-color: red;
-        text-align: center;
-        align-items: center;
-       
-        animation-duration: 2s;
-        
-        
-        
-    }
+     
+        transform: rotate(-50deg);
+        margin-top: -6px;
+        transition: 0.3s;
+}
 
     p.param-create-item, a.param-logout {
-       display:none;
-        
-    }
-    p.param-create-item.active, a.param-logout.active {
         display: inline-block;
-        color:white;
+        color:red;
         text-align: center;
         text-decoration: none;
+        
     }
-
+   
 
 </style>

@@ -10,112 +10,113 @@
 
     <%-include ('./partials/create.ejs') %>
 <div class="welcome-wrapper">
-      <p class="welcome-message"><span style="font-weight: bold; color: red;"><%= profile.firstname %>!</span>  Welcome back to Shopean </p>
-      <button id="clear-btn" class="clear-btn">Clear list</button>
+      <p class="welcome-message"><span style="font-weight: bold; color: red;"><%= profile.firstname %>..</span>  Welcome to Shopean </p>
+     
 </div>
 
     <div>
        <div class="form-container">
-            <form id="form-search" action="/home" class="form-style" >
-                <input id="item-input" type="text" autofocus required name="item" minlength="2" maxlength="14" class="search-item" placeholder="What do I need" autocomplete="off">
+            <form id="form-search" action="/home"  class="form-style" >
+                <input id="item-input" type="text" autofocus required name="item" minlength="2" maxlength="14" class="search-item" placeholder="What do you need?" autocomplete="off">
                 <div id="results-list" class="results-list"></div>
             </form>
         </div>
         
     </div>
 <section id="shopping-section" class="shopping-section">
-    
+
 <div id="bake" class="sub-flex-container">
     <div class="bakery-wrapper item-sect"> <h4>Bakery</h4> </div>
-        <div class="count"> <h4 id="bake-count"><%- include('./partials/arrow.ejs') %></h4> </div>
-    <div class="shopping-wrapper bake-drop">
-        <ul class="shopping s-list bakery"></ul>
+        <div class="count"><h4 id="bake-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+    <div class="shopping-wrapper bake-drop active">
+        <ul class="s-list bakery"></ul>
 </div>
-</div>          
+</div>      
+    
         
                
 <div id="clean" class="sub-flex-container">
         <div class="cleaning-wrapper item-sect">  <h4>Cleaning</h4> </div>
-        <div class="count"> <h4 id="cleaning-count">list</h4> </div>
-    <div class="shopping-wrapper clean-drop" >
-        <ul class="shopping s-list cleaning"></ul>
+    <div class="count"><h4 id="cleaning-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+    <div class="shopping-wrapper clean-drop active" >
+        <ul class="s-list cleaning"></ul>
 </div>
 </div>    
                
 <div id="kitch" class="sub-flex-container">
         <div class="kitchen-acc-wrapper item-sect">  <h4>Kitchen Accessories</h4>  </div>
-        <div class="count"> <h4 id="kitchen-count">list</h4> </div>    
-  <div class="shopping-wrapper kitch-drop" >
-     <ul class="shopping s-list kitchen-accessories"></ul>
+<div class="count"><h4 id="kitchen-count"><%- include('./partials/arrow.ejs') %></h4></div>    
+  <div class="shopping-wrapper kitch-drop active" >
+     <ul class="s-list kitchen-accessories"></ul>
 </div>           
 </div>            
                 
 <div id="toilet" class="sub-flex-container">
     <div class="toiletries-wrapper item-sect">  <h4>Toiletries</h4> </div>
-    <div class="count"> <h4 id="toilet-count">list</h4> </div>
-<div class="shopping-wrapper toilet-drop">
-    <ul class="shopping s-list toiletries"></ul>
+    <div class="count"> <h4 id="toilet-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+<div class="shopping-wrapper toilet-drop active">
+    <ul class="s-list toiletries"></ul>
 </div>
 </div>               
     
 <div id="dry" class="sub-flex-container">
     <div class="dry-goods-wrapper item-sect"> <h4>Dry goods</h4> </div>
-    <div class="count"> <h4 id="dry-count">list</h4> </div>
-<div class="shopping-wrapper dry-drop">
-    <ul class="shopping s-list dry-goods"></ul>
+    <div class="count"> <h4 id="dry-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+<div class="shopping-wrapper dry-drop active">
+    <ul class="s-list dry-goods"></ul>
 </div>
 </div>             
             
 <div id="fruit" class="sub-flex-container">
-    <div class="fruit-veg-wrapper item-sect">  <h4>Fruit & Veggies</h4>   </div>
-    <div class="count"> <h4 id="fruit-count">list</h4> </div>
-<div class="shopping-wrapper fruit-drop" >
-   <ul class="shopping s-list fruit-veg"></ul>
+    <div class="fruit-veg-wrapper item-sect"> <h4>Fruit & Veggies</h4> </div>
+    <div class="count"> <h4 id="fruit-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+<div class="shopping-wrapper fruit-drop active" >
+   <ul class="s-list fruit-veg"></ul>
 </div>             
 </div>              
     
 <div id="dairy" class="sub-flex-container">
     <div class="dairy-wrapper item-sect"> <h4>Dairy</h4>  </div>
-    <div class="count"> <h4 id="dairy-count">list</h4> </div>   
-<div class="shopping-wrapper dairy-drop" >
-    <ul class="shopping s-list dairy"></ul>
+    <div class="count"> <h4 id="dairy-count"><%- include('./partials/arrow.ejs') %></h4> </div>   
+<div class="shopping-wrapper dairy-drop active" >
+    <ul class="s-list dairy"></ul>
 </div>          
 </div>                             
     
 <div id="meat" class="sub-flex-container">
     <div class="meat-wrapper item-sect"> <h4>Meat</h4>  </div>
-    <div class="count"> <h4 id="meat-count">list</h4> </div>
-<div class="shopping-wrapper meat-drop">
-    <ul class="shopping s-list meat"></ul>
+    <div class="count"> <h4 id="meat-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+<div class="shopping-wrapper meat-drop active">
+    <ul class="s-list meat"></ul>
 </div>
 </div>                   
                
 <div id="sea" class="sub-flex-container">
     <div class="seafood-wrapper item-sect">  <h4>Seafood</h4>  </div>
-    <div class="count"> <h4 id="sea-count">list</h4> </div>
-<div class="shopping-wrapper sea-drop">
-    <ul class="shopping s-list seafood"></ul>
+    <div class="count"> <h4 id="sea-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+<div class="shopping-wrapper sea-drop active">
+    <ul class="s-list seafood"></ul>
 </div>
 </div>      
 
 <div id="froz" class="sub-flex-container">
         <div class="frozen-wrapper item-sect"> <h4>Frozen</h4>  </div>
-        <div class="count"> <h4 id="frozen-count">list</h4> </div>
-    <div class="shopping-wrapper froz-drop" >
-         <ul class="shopping s-list frozen"> </ul>
+        <div class="count"> <h4 id="frozen-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+    <div class="shopping-wrapper froz-drop active" >
+         <ul class="s-list frozen"></ul>
 </div>         
 </div>               
             
 <div id="bev" class="sub-flex-container">
     <div class="beverages-wrapper item-sect"> <h4>Beverages</h4>  </div>
-    <div class="count"> <h4 id="bev-count">list</h4> </div>
-<div class="shopping-wrapper bev-drop" >   
-    <ul class="shopping s-list beverages"></ul>
+    <div class="count"> <h4 id="bev-count"><%- include('./partials/arrow.ejs') %></h4> </div>
+<div class="shopping-wrapper bev-drop active" >   
+    <ul class="s-list beverages"></ul>
 </div>    
 </div>              
 
 </section>    
-           
+<button id="clear-btn" class="clear-btn">Clear list</button>
    
   
          

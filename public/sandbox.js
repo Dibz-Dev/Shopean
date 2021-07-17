@@ -6,8 +6,11 @@ const resultsList = document.querySelector('#results-list');
 const singleItem = document.querySelector('h5.item-auto-style');
 const ul = document.querySelectorAll('ul');
 const dropDown = document.querySelector('#shopping-section');
-
+const menuBar = document.querySelector('#menu-wrapper');
+const menuOptions = document.querySelector('.menu-options')
 const clearList = document.querySelector('#clear-btn')
+const topClear = document.querySelector('#top-menu-clear')
+const body = document.querySelector('body')
 
 
 
@@ -46,18 +49,18 @@ const api_Url = "http://localhost:3000/getItem";
 
 const getItem = async searchText => {
 
- const query = await fetch(api_Url)
- const data = await query.json()
+        const query = await fetch(api_Url)
+        const data = await query.json()
 
- let matches = data.filter(item => {
-   const regex = new RegExp(`^${searchText}`, 'gi');
-   return item.item.match(regex) || item.category.match(regex);
- });
+    let matches = data.filter(item => {
+        const regex = new RegExp(`^${searchText}`, 'gi');
+        return item.item.match(regex) || item.category.match(regex);
+    });
 
- if(searchText.length === 0) { 
-   matches = [];
-   resultsList.innerHTML = '';
-    }
+    if(searchText.length === 0) { 
+          matches = [];
+          resultsList.innerHTML = '';
+      }
 
     generateTemplate(matches);
    
@@ -70,10 +73,9 @@ const generateTemplate = (matches) => {
     const html = matches.map(match => 
       ` <div class="results-items"><h5 class="item-auto-style">${match.item}</h5></div>`
      ).join('');
-
     resultsList.innerHTML = html;
-  } else {
-    if(matches.length <= 0)
+
+  } else if (matches.length <= 0) {
     resultsList.innerHTML = '<p style="color: red;">Please enter a valid item or click on the "Menu" button to create a new item</p>';
   }
 }
@@ -82,7 +84,6 @@ const generateTemplate = (matches) => {
 const outPut = async () => {
 
   const formValue = form.item.value;
-
   const query = await fetch(api_Url)
   const data = await query.json()
  
@@ -98,12 +99,15 @@ const outPut = async () => {
 })
 
  if(matches.length > 0) {
- resultsList.innerHTML =  `<p style="color: green;">Item has been added</p>`;
+ resultsList.innerHTML =  `<p style="color: green;">Item has been added</p>`
+ resultsList.classList.add('class', 'open')
  }
  setTimeout(() => {
    
   resultsList.innerHTML = '';
- }, 2000)
+  resultsList.classList.remove('open')
+  resultsList.classList.add('class', 'collapse')
+ }, 1000)
  generateNewHtml(matches)
 
 };
@@ -116,59 +120,33 @@ const generateNewHtml = (matches) => {
   if(matches.length > 0) {
        const html = matches.map(match => 
       `
-      <li class="uncheck ${matches[0].category}">${matches[0].item}</li>
+      <li class="uncheck ${matches[0].category}">${matches[0].item}<span class="close">&times;</span></li>
       ` 
       ).join();
 
-      
+      const clearBtn = document.querySelector('.clear-btn')
       const ul = document.querySelectorAll('ul');
       
       ul.forEach(list => {
        if(list.classList.contains(`${matches[0].category}`) ) {
           list.innerHTML += html;
-          } 
+          list.parentElement.parentElement.classList.add('active')
+          clearBtn.classList.add('active')
+          }
         })
       }
   }
 
 
-
-
 // ---------------------TYPING DB LOOK UP EVENT--------------------
 
-form.addEventListener('input', () => getItem(form.item.value))
+form.addEventListener('input', () => {
+  getItem(form.item.value) 
+  resultsList.classList.remove('collapse')
 
-
-
-//  ---------------------------CHECK UNCHECK LIST BOX CLICK EVENTS---------------
-
-
- ul.forEach(list => {
-
-  list.addEventListener('click', e => {
-  
-
-    if(e.target.classList.contains('uncheck')) {
-      e.target.setAttribute('class', 'check')
-     
-    } else if (e.target.classList.contains('check')) {
-      e.target.setAttribute('class', 'uncheck')
-     }
-  
-    })
-
-  });
-  
- 
+})
 
   
-
- 
-
-  
-
-
-
 // --------------DB ITEM AS FORM VALUE--------------------
 
 
@@ -181,7 +159,7 @@ resultsList.addEventListener('click', e => {
 
           form.item.value = textTwo;
           resultsList.innerHTML = '';
-       
+          
 
         }
       
@@ -189,15 +167,33 @@ resultsList.addEventListener('click', e => {
 
 //---------------REMOVE LOCAL STORAGE ----------------------------- 
 
-clearList.addEventListener('click', () => {
+const clearContents = () => {
 
   let listWrapper = document.querySelectorAll('ul')
 
   localStorage.removeItem('elements');
   listWrapper.forEach(list => {
   list.innerHTML = '';
+  list.parentElement.parentElement.classList.remove('active')
+  clearList.classList.remove('active')
+  
 })
+
+}
+
+clearList.addEventListener('click', () => {
+
+  clearContents()
+
 })
+
+topClear.addEventListener('click', () => {
+
+      clearContents()
+
+})
+
+
   
 
 // -----------------------------HOME PAGE INPUT FORM SUBMIT EVENT----------------
@@ -205,12 +201,12 @@ clearList.addEventListener('click', () => {
 form.addEventListener('submit', (e) => {
     e.preventDefault()
      outPut()
-    //  setTimeout(() => {
+     setTimeout(() => {
 
-    //   const store = document.getElementById('shopping-section')
-    //   localStorage.setItem('elements', store.innerHTML)
+      const store = document.getElementById('shopping-section')
+      localStorage.setItem('elements', store.innerHTML)
     
-    // },1000);
+    },1000);
     
     form.reset();
     
@@ -220,133 +216,248 @@ form.addEventListener('submit', (e) => {
 
     if(localStorage.getItem('elements')) {
       dropDown.innerHTML = localStorage.getItem('elements')
-     } else {
-       console.log('data not available')
-     }
-    
+     } 
   }
 
-//  getStorage()
+ getStorage()
+
+
+ //  ---------------------------CHECK UNCHECK LIST BOX CLICK EVENTS---------------
+
+body.addEventListener('click', e => {
+
+  const store = document.getElementById('shopping-section')
+
+  if(e.target.classList.contains('uncheck')) {
+    e.target.setAttribute('class', 'check')
+    localStorage.setItem('elements', store.innerHTML)
+
+  } else if (e.target.classList.contains('check')) {
+    e.target.setAttribute('class', 'uncheck')
+    localStorage.setItem('elements', store.innerHTML)
+  }
+
+  if(e.target.classList.contains('close')) {
+    e.target.parentElement.remove()
+    localStorage.setItem('elements', store.innerHTML)
+  }
+
+
+
+ 
+})
+ 
+
+
+//  --------------------------------MENU DROPDOWN--------------------------------------
+
+
+menuBar.addEventListener('click', () => { 
+
+    const menuChildren = Array.from(menuBar.children);
+
+    menuChildren.forEach(bar => {
+    bar.classList.toggle('active')
    
+})
+menuOptions.classList.toggle('active')
+})
+
+menuOptions.addEventListener('click', () => {
+
+  menuOptions.classList.remove('active')
+
+  const menuChildren = Array.from(menuBar.children)
+
+  menuChildren.forEach(bar => {
+  bar.classList.remove('active')
+  })
+
+})
+
+
+
+
+
+
+
 // ------------------------CATEGORIES DROPDOWN EVENT LISTENERS---------------------------
       
-const meat = document.getElementById('meat');
+const meat = document.querySelector('#meat-count');
 
 
 meat.addEventListener('click', (e) => {
-  
+
+    const arrow = meat.querySelectorAll('.arrow')
     const child = document.querySelector('.meat-drop');
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+    })
+    
+    
 })
 
 
-const bake = document.getElementById('bake');
-const click = bake.querySelector('#bake-count')
 
-click.addEventListener('click', (e) => {
+
+
+const bake = document.querySelector('#bake-count')
+
+bake.addEventListener('click', (e) => {
   
-    const clicky = bake.querySelector('.bakery-wrapper');
-    
-    const drop = bake.querySelector('.bake-drop')
+  const arrow = bake.querySelectorAll('.arrow')
+  const drop = document.querySelector('.bake-drop')
 
-    if(e.target = 'div#bake-count') {
-      drop.classList.toggle('active')
-    }
+  drop.classList.toggle('active')
+  arrow.forEach(arr => {
+  arr.classList.toggle('active')
+  })
 })
-
+  
     
-
-
-const clean = document.getElementById('clean');
+const clean = document.querySelector('#cleaning-count');
 
 
 clean.addEventListener('click', (e) => {
   
-    const child = document.querySelector('.clean-drop');
+    const child = document.querySelector('.clean-drop')
+    const arrow = clean.querySelectorAll('.arrow')
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+      })
+   
 })
 
-const kitch = document.getElementById('kitch');
+const kitch = document.querySelector('#kitchen-count');
 
 
 kitch.addEventListener('click', (e) => {
   
     const child = document.querySelector('.kitch-drop');
+    const arrow = kitch.querySelectorAll('.arrow')
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+      })
+
+   
 })
 
-const toilet = document.getElementById('toilet');
+const toilet = document.querySelector('#toilet-count');
 
 
 toilet.addEventListener('click', (e) => {
   
     const child = document.querySelector('.toilet-drop');
+    const arrow = toilet.querySelectorAll('.arrow')
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+      })
+
+  
 })
 
 
-const dry = document.getElementById('dry');
+const dry = document.querySelector('#dry-count');
 
 
 dry.addEventListener('click', (e) => {
   
     const child = document.querySelector('.dry-drop');
+    const arrow = dry.querySelectorAll('.arrow')
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+      })
+
+    
 })
 
-const fruit = document.getElementById('fruit');
+const fruit = document.querySelector('#fruit-count');
 
 
 fruit.addEventListener('click', (e) => {
   
     const child = document.querySelector('.fruit-drop');
+    const arrow = fruit.querySelectorAll('.arrow')
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+      })
+
+    
 })
 
-const dairy = document.getElementById('dairy');
+const dairy = document.querySelector('#dairy-count');
 
 
 dairy.addEventListener('click', (e) => {
   
     const child = document.querySelector('.dairy-drop');
+    const arrow = dairy.querySelectorAll('.arrow')
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+      })
+
+    
 })
 
-const sea = document.getElementById('sea');
+const sea = document.querySelector('#sea-count');
 
 
 sea.addEventListener('click', (e) => {
   
     const child = document.querySelector('.sea-drop');
+    const arrow = sea.querySelectorAll('.arrow')
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+      })
+
+   
 })
 
-const froz = document.getElementById('froz');
+const froz = document.querySelector('#frozen-count');
 
 
 froz.addEventListener('click', (e) => {
   
     const child = document.querySelector('.froz-drop');
+    const arrow = froz.querySelectorAll('.arrow')
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+      })
+
+   
 })
 
-const bev = document.getElementById('bev');
+const bev = document.querySelector('#bev-count');
 
 
 bev.addEventListener('click', (e) => {
   
     const child = document.querySelector('.bev-drop');
+    const arrow = bev.querySelectorAll('.arrow')
 
     child.classList.toggle('active')
+    arrow.forEach(arr => {
+      arr.classList.toggle('active')
+      })
+
 })
 
 
