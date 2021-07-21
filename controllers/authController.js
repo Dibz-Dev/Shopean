@@ -76,7 +76,8 @@ module.exports.home_post = (req, res) => {
     }
 
 
-
+ module.exports.cover_get = (req, res) => {
+        res.render('cover') }
    
 module.exports.signup_get = (req, res) => {
     res.render('signup')

@@ -52,15 +52,15 @@ const getItem = async (req, res, next) => {
     res.item = item;
     next()
 }
-app.get('/home', pageAuth, getItem, (req, res) => {
 
-//     
+
+
+app.get('/home', pageAuth, getItem, (req, res) => { 
     
     res.render('index') })
 
 
-    
-    
+
 
 app.use(authRoutes);
 

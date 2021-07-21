@@ -2,12 +2,13 @@
     <div id="top" class="top"></div>
     <div id="bottom" class="bottom"></div>
 </div>
-<div class="menu-options">
-    <p id="top-menu-clear">Clear List</p>
-    <p id="create-item-modal">Create Item </p>
-    <p><a href="/logout" class="param-logout"> Log out</a></p>
+<div class="drop-menu">
+    <div class="menu-options">
+        <p id="top-menu-clear">Clear List</p>
+        <p id="create-item-modal">Create Item </p>
+        <p><a href="/logout" class="param-logout"> Log out</a></p>
+    </div>
 </div>
-
 
 <style>
 
@@ -21,24 +22,36 @@
         
     }
 
+    .drop-menu {
+
+        position: relative;
+        margin-top:65px;
+        width:100%;
+   }
+
     .menu-options {
+        
         display: flex;
+        position: fixed;
+        margin-top: -135px;
+        width:100%;
         justify-content: space-around;
-        margin-left: -200px;
-        margin-top: 70px;
-        width:200px;
+        background-color: rgba(204, 231, 240, 0.959);
         transition: 0.5s;
+      
+       
     }
 
    .menu-options.active {
-        
-        justify-content: space-around;
-        width: 100%;
+        display: flex;
+        position: fixed;
+        margin-top: 1px;
         background-color: rgba(204, 231, 240, 0.959);
-        margin-top: 70px;
-        transition: 2s;
-        margin-left: 0;
-        transition: 0.5s;
+        transition: 0.3s;
+        height:55px;
+        
+       
+       
 
    }
 
@@ -105,3 +118,4 @@
    
 
 </style>
+

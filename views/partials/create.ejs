@@ -1,15 +1,16 @@
 
    <div class="create-overlay"></div>
-
+   
 <div id="modal-wrapper" class="modal-wrapper">
-    <h3>Create a new Shopping Item</h3>
-
+   
+  
 
  
  <form action="/home" method="POST" id="add-item" class="add-item">
+    <h3>Create a new Shopping Item</h3>
        <div class="category-item">
             <label for="category">Category</label>
-            <select type="select" name="category"  required>
+            <select class="category-input" type="select" name="category"  required>
                 <option value="bakery">Bakery</option>
                 <option value="cleaning">Cleaning</option>
                 <option value="toiletries">Toiletries</option>
@@ -23,7 +24,7 @@
                 <option value="beverages">Beverages</option>
                 </select>
                 <label for="item">Item name</label>
-                <input type="text" name="item" required>
+                <input class="create-input" type="text" name="item" autocomplete="off" required>
             </div>
      <button id="add-btn" class="add-btn" type="submit">Submit</button>
 </form>

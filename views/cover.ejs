@@ -1,0 +1,108 @@
+
+ <%- include('./partials/head.ejs') %>
+
+
+<div class="cover-background">
+
+    <div class="heading-container">
+        <h1 class="site-heading">Shop<spa style="color: white">ean</span></h1>
+    </div>
+    <div class="btn-container">
+         
+         <button class="btn-cover-style"><a href="/login">Login</a></button>
+         <button class="btn-cover-style"><a href="/signup">Sign Up</a></button>
+
+    </div>
+</div>
+
+<style>
+
+.cover-background {
+
+    position:fixed;
+    top:0%;
+    bottom:0%;
+    left:0%;
+    right:0%; 
+    background-color: rgb(91, 172, 204);
+    width:100%;
+    height:100vh;
+    overflow: hidden;
+    
+   
+}
+
+.heading-container {
+
+   text-align: center;
+   animation: heading;
+   animation-duration: 4s;
+
+}
+
+.site-heading {
+    color:red;
+    margin-top: 150px;
+    font-size: 4rem;
+    font-family: 'pacifico', sans-serif;
+
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    animation-name: buttons;
+    animation-duration: 2s;
+   
+}
+
+.btn-cover-style {
+
+    background-color: rgb(91, 172, 204);
+    border: 2px solid white;
+    outline: none;
+    padding:10px 10px;
+    border-radius: 20px;
+    margin:10px;
+    width:80px;
+    cursor: pointer;
+   
+
+}
+
+.btn-cover-style a {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+
+}
+/* -----------------------ANIMATIONS-------------------------------- */
+
+@keyframes heading {
+   
+    0% {
+        transform: scale(1);
+        opacity: 0%
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+       opacity: 100%;
+    }
+}
+
+@keyframes buttons {
+   
+   0% {
+       margin-left: -500px;
+       transform: scale(0);
+   }
+   100% {
+       margin-left: 0px;
+       transform: scale(1);
+   }
+}
+
+</style>

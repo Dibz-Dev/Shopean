@@ -23,6 +23,7 @@ const modalOpen = () => {
 
   overlay.classList.add('active')
   modal.classList.add('active')
+  body.setAttribute('style', 'overflow:hidden')
 
 };
 
@@ -34,6 +35,7 @@ const modalClose = () => {
 
   overlay.classList.remove('active')
   modal.classList.remove('active')
+  body.setAttribute('style', '')
 
 };
 
@@ -131,6 +133,7 @@ const generateNewHtml = (matches) => {
        if(list.classList.contains(`${matches[0].category}`) ) {
           list.innerHTML += html;
           list.parentElement.parentElement.classList.add('active')
+          // list.parentElement.parentElement.set.add
           clearBtn.classList.add('active')
           }
         })
@@ -181,6 +184,9 @@ const clearContents = () => {
 
 }
 
+
+
+
 clearList.addEventListener('click', () => {
 
   clearContents()
@@ -189,7 +195,7 @@ clearList.addEventListener('click', () => {
 
 topClear.addEventListener('click', () => {
 
-      clearContents()
+  clearContents()
 
 })
 
@@ -227,21 +233,35 @@ form.addEventListener('submit', (e) => {
 body.addEventListener('click', e => {
 
   const store = document.getElementById('shopping-section')
+ 
+  const collapse = e.target.parentElement.parentElement.parentElement.parentElement;
+
+
 
   if(e.target.classList.contains('uncheck')) {
     e.target.setAttribute('class', 'check')
-    localStorage.setItem('elements', store.innerHTML)
+   
 
   } else if (e.target.classList.contains('check')) {
     e.target.setAttribute('class', 'uncheck')
-    localStorage.setItem('elements', store.innerHTML)
+  
   }
+
+
+  if(e.target.parentElement.parentElement.children.length <= 1 && e.target.classList.contains('close')) {
+      collapse.classList.remove('active');
+  }
+
+  
+ 
 
   if(e.target.classList.contains('close')) {
     e.target.parentElement.remove()
-    localStorage.setItem('elements', store.innerHTML)
-  }
+  } 
 
+ 
+    
+  localStorage.setItem('elements', store.innerHTML)
 
 
  
@@ -283,181 +303,181 @@ menuOptions.addEventListener('click', () => {
 
 // ------------------------CATEGORIES DROPDOWN EVENT LISTENERS---------------------------
       
-const meat = document.querySelector('#meat-count');
+// const meat = document.querySelector('#meat-count');
 
 
-meat.addEventListener('click', (e) => {
+// meat.addEventListener('click', (e) => {
 
-    const arrow = meat.querySelectorAll('.arrow')
-    const child = document.querySelector('.meat-drop');
+//     const arrow = meat.querySelectorAll('.arrow')
+//     const child = document.querySelector('.meat-drop');
 
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-    })
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//     })
     
     
-})
+// })
 
 
 
 
 
-const bake = document.querySelector('#bake-count')
+// const bake = document.querySelector('#bake-count')
 
-bake.addEventListener('click', (e) => {
+// bake.addEventListener('click', (e) => {
   
-  const arrow = bake.querySelectorAll('.arrow')
-  const drop = document.querySelector('.bake-drop')
+//   const arrow = bake.querySelectorAll('.arrow')
+//   const drop = document.querySelector('.bake-drop')
 
-  drop.classList.toggle('active')
-  arrow.forEach(arr => {
-  arr.classList.toggle('active')
-  })
-})
+//   drop.classList.toggle('active')
+//   arrow.forEach(arr => {
+//   arr.classList.toggle('active')
+//   })
+// })
   
     
-const clean = document.querySelector('#cleaning-count');
+// const clean = document.querySelector('#cleaning-count');
 
 
-clean.addEventListener('click', (e) => {
+// clean.addEventListener('click', (e) => {
   
-    const child = document.querySelector('.clean-drop')
-    const arrow = clean.querySelectorAll('.arrow')
+//     const child = document.querySelector('.clean-drop')
+//     const arrow = clean.querySelectorAll('.arrow')
 
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-      })
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//       })
    
-})
+// })
 
-const kitch = document.querySelector('#kitchen-count');
+// const kitch = document.querySelector('#kitchen-count');
 
 
-kitch.addEventListener('click', (e) => {
+// kitch.addEventListener('click', (e) => {
   
-    const child = document.querySelector('.kitch-drop');
-    const arrow = kitch.querySelectorAll('.arrow')
+//     const child = document.querySelector('.kitch-drop');
+//     const arrow = kitch.querySelectorAll('.arrow')
 
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-      })
-
-   
-})
-
-const toilet = document.querySelector('#toilet-count');
-
-
-toilet.addEventListener('click', (e) => {
-  
-    const child = document.querySelector('.toilet-drop');
-    const arrow = toilet.querySelectorAll('.arrow')
-
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-      })
-
-  
-})
-
-
-const dry = document.querySelector('#dry-count');
-
-
-dry.addEventListener('click', (e) => {
-  
-    const child = document.querySelector('.dry-drop');
-    const arrow = dry.querySelectorAll('.arrow')
-
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-      })
-
-    
-})
-
-const fruit = document.querySelector('#fruit-count');
-
-
-fruit.addEventListener('click', (e) => {
-  
-    const child = document.querySelector('.fruit-drop');
-    const arrow = fruit.querySelectorAll('.arrow')
-
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-      })
-
-    
-})
-
-const dairy = document.querySelector('#dairy-count');
-
-
-dairy.addEventListener('click', (e) => {
-  
-    const child = document.querySelector('.dairy-drop');
-    const arrow = dairy.querySelectorAll('.arrow')
-
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-      })
-
-    
-})
-
-const sea = document.querySelector('#sea-count');
-
-
-sea.addEventListener('click', (e) => {
-  
-    const child = document.querySelector('.sea-drop');
-    const arrow = sea.querySelectorAll('.arrow')
-
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-      })
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//       })
 
    
-})
+// })
 
-const froz = document.querySelector('#frozen-count');
+// const toilet = document.querySelector('#toilet-count');
 
 
-froz.addEventListener('click', (e) => {
+// toilet.addEventListener('click', (e) => {
   
-    const child = document.querySelector('.froz-drop');
-    const arrow = froz.querySelectorAll('.arrow')
+//     const child = document.querySelector('.toilet-drop');
+//     const arrow = toilet.querySelectorAll('.arrow')
 
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-      })
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//       })
+
+  
+// })
+
+
+// const dry = document.querySelector('#dry-count');
+
+
+// dry.addEventListener('click', (e) => {
+  
+//     const child = document.querySelector('.dry-drop');
+//     const arrow = dry.querySelectorAll('.arrow')
+
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//       })
+
+    
+// })
+
+// const fruit = document.querySelector('#fruit-count');
+
+
+// fruit.addEventListener('click', (e) => {
+  
+//     const child = document.querySelector('.fruit-drop');
+//     const arrow = fruit.querySelectorAll('.arrow')
+
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//       })
+
+    
+// })
+
+// const dairy = document.querySelector('#dairy-count');
+
+
+// dairy.addEventListener('click', (e) => {
+  
+//     const child = document.querySelector('.dairy-drop');
+//     const arrow = dairy.querySelectorAll('.arrow')
+
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//       })
+
+    
+// })
+
+// const sea = document.querySelector('#sea-count');
+
+
+// sea.addEventListener('click', (e) => {
+  
+//     const child = document.querySelector('.sea-drop');
+//     const arrow = sea.querySelectorAll('.arrow')
+
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//       })
 
    
-})
+// })
 
-const bev = document.querySelector('#bev-count');
+// const froz = document.querySelector('#frozen-count');
 
 
-bev.addEventListener('click', (e) => {
+// froz.addEventListener('click', (e) => {
   
-    const child = document.querySelector('.bev-drop');
-    const arrow = bev.querySelectorAll('.arrow')
+//     const child = document.querySelector('.froz-drop');
+//     const arrow = froz.querySelectorAll('.arrow')
 
-    child.classList.toggle('active')
-    arrow.forEach(arr => {
-      arr.classList.toggle('active')
-      })
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//       })
 
-})
+   
+// })
+
+// const bev = document.querySelector('#bev-count');
+
+
+// bev.addEventListener('click', (e) => {
+  
+//     const child = document.querySelector('.bev-drop');
+//     const arrow = bev.querySelectorAll('.arrow')
+
+//     child.classList.toggle('active')
+//     arrow.forEach(arr => {
+//       arr.classList.toggle('active')
+//       })
+
+// })
 
 
