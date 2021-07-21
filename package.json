@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dibz-Dev/test1.git"
+    "url": "git+https://github.com/Dibz-Dev/shopean.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Dibz-Dev/test1/issues"
+    "url": "https://github.com/Dibz-Dev/shopean/issues"
   },
-  "homepage": "https://github.com/Dibz-Dev/test1#readme",
+  "homepage": "https://github.com/Dibz-Dev/shopean#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
