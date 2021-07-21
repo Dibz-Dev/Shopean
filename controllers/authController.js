@@ -53,7 +53,7 @@ const createToken = (id) => {
 module.exports.home_post = (req, res) => {
     
     const item =  new Item(req.body)
-
+    
     item.save()
     .then((result) => {
         res.redirect('home')

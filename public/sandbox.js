@@ -1,6 +1,9 @@
 const openModal = document.querySelector('#create-item-modal')
 const closeModal = document.querySelector('#close-circle')
+
 const form = document.querySelector('#form-search');
+const createForm = document.querySelector('#add-item');
+
 const itemInput = document.querySelector('#item-input');
 const resultsList = document.querySelector('#results-list');
 const singleItem = document.querySelector('h5.item-auto-style');
@@ -69,6 +72,8 @@ const getItem = async searchText => {
   
 };
 
+
+
 const generateTemplate = (matches) => {
   
   if(matches.length > 0) {
@@ -86,16 +91,18 @@ const generateTemplate = (matches) => {
 const outPut = async () => {
 
   const formValue = form.item.value;
+
   const query = await fetch(api_Url)
   const data = await query.json()
- 
-   let matches = data.filter(item => {
+
+  
+let matches = data.filter(item => {
   
     if(item.item.match(formValue)) {
       return item.item.match(formValue)
-     
+      
     } else {
-      return
+     return
     }
 
 })
@@ -117,7 +124,6 @@ const outPut = async () => {
   
 const generateNewHtml = (matches) => {
 
-  
  
   if(matches.length > 0) {
        const html = matches.map(match => 
@@ -133,7 +139,6 @@ const generateNewHtml = (matches) => {
        if(list.classList.contains(`${matches[0].category}`) ) {
           list.innerHTML += html;
           list.parentElement.parentElement.classList.add('active')
-          // list.parentElement.parentElement.set.add
           clearBtn.classList.add('active')
           }
         })
@@ -200,19 +205,27 @@ topClear.addEventListener('click', () => {
 })
 
 
+
   
 
 // -----------------------------HOME PAGE INPUT FORM SUBMIT EVENT----------------
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-     outPut()
+    
+  const itemPattern = /[a-z]/;
+  if(itemPattern.test(form.item.value))
+    {
+      outPut()
+    }
+     
+     
      setTimeout(() => {
 
       const store = document.getElementById('shopping-section')
       localStorage.setItem('elements', store.innerHTML)
     
-    },1000);
+    },300);
     
     form.reset();
     
@@ -226,6 +239,12 @@ form.addEventListener('submit', (e) => {
   }
 
  getStorage()
+
+//  -----------------------------CREATE ITEM FORM---------------------------------
+
+
+
+
 
 
  //  ---------------------------CHECK UNCHECK LIST BOX CLICK EVENTS---------------
@@ -299,185 +318,5 @@ menuOptions.addEventListener('click', () => {
 
 
 
-
-
-// ------------------------CATEGORIES DROPDOWN EVENT LISTENERS---------------------------
-      
-// const meat = document.querySelector('#meat-count');
-
-
-// meat.addEventListener('click', (e) => {
-
-//     const arrow = meat.querySelectorAll('.arrow')
-//     const child = document.querySelector('.meat-drop');
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//     })
-    
-    
-// })
-
-
-
-
-
-// const bake = document.querySelector('#bake-count')
-
-// bake.addEventListener('click', (e) => {
-  
-//   const arrow = bake.querySelectorAll('.arrow')
-//   const drop = document.querySelector('.bake-drop')
-
-//   drop.classList.toggle('active')
-//   arrow.forEach(arr => {
-//   arr.classList.toggle('active')
-//   })
-// })
-  
-    
-// const clean = document.querySelector('#cleaning-count');
-
-
-// clean.addEventListener('click', (e) => {
-  
-//     const child = document.querySelector('.clean-drop')
-//     const arrow = clean.querySelectorAll('.arrow')
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//       })
-   
-// })
-
-// const kitch = document.querySelector('#kitchen-count');
-
-
-// kitch.addEventListener('click', (e) => {
-  
-//     const child = document.querySelector('.kitch-drop');
-//     const arrow = kitch.querySelectorAll('.arrow')
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//       })
-
-   
-// })
-
-// const toilet = document.querySelector('#toilet-count');
-
-
-// toilet.addEventListener('click', (e) => {
-  
-//     const child = document.querySelector('.toilet-drop');
-//     const arrow = toilet.querySelectorAll('.arrow')
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//       })
-
-  
-// })
-
-
-// const dry = document.querySelector('#dry-count');
-
-
-// dry.addEventListener('click', (e) => {
-  
-//     const child = document.querySelector('.dry-drop');
-//     const arrow = dry.querySelectorAll('.arrow')
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//       })
-
-    
-// })
-
-// const fruit = document.querySelector('#fruit-count');
-
-
-// fruit.addEventListener('click', (e) => {
-  
-//     const child = document.querySelector('.fruit-drop');
-//     const arrow = fruit.querySelectorAll('.arrow')
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//       })
-
-    
-// })
-
-// const dairy = document.querySelector('#dairy-count');
-
-
-// dairy.addEventListener('click', (e) => {
-  
-//     const child = document.querySelector('.dairy-drop');
-//     const arrow = dairy.querySelectorAll('.arrow')
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//       })
-
-    
-// })
-
-// const sea = document.querySelector('#sea-count');
-
-
-// sea.addEventListener('click', (e) => {
-  
-//     const child = document.querySelector('.sea-drop');
-//     const arrow = sea.querySelectorAll('.arrow')
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//       })
-
-   
-// })
-
-// const froz = document.querySelector('#frozen-count');
-
-
-// froz.addEventListener('click', (e) => {
-  
-//     const child = document.querySelector('.froz-drop');
-//     const arrow = froz.querySelectorAll('.arrow')
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//       })
-
-   
-// })
-
-// const bev = document.querySelector('#bev-count');
-
-
-// bev.addEventListener('click', (e) => {
-  
-//     const child = document.querySelector('.bev-drop');
-//     const arrow = bev.querySelectorAll('.arrow')
-
-//     child.classList.toggle('active')
-//     arrow.forEach(arr => {
-//       arr.classList.toggle('active')
-//       })
-
-// })
 
 

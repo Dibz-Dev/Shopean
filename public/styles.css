@@ -80,7 +80,6 @@ body {
 input.search-item {
     
     font-size: 1.4em;
-    border-radius: 3px;
     border-bottom:1px solid black;
     border-left:none;
     border-top:none;
@@ -194,15 +193,17 @@ h4 {
 }
 
 .results-list {
-    width:100%;
+    width:80%;
     margin:auto;
     transition: 1s;
+    /* border:1px solid red; */
 }
 
 .results-list.open {
     width:80%;
     height:30px;
     transition: 1s;
+    
 }
 
 .results-list.collapse {
@@ -218,12 +219,12 @@ h4 {
     text-align:center;
     font-size: 1.2em;
     letter-spacing: 0.2em;
-    height: 50px;
-    width:80%;
-    margin:5px auto;
-    border: 2px solid rgb(91, 172, 204);
+    height: 40px;
+    width:99%;
+    margin: auto;
     cursor: pointer;
-    border-radius: 5px;
+    border: 1px solid black;
+    border-top: none;
     
 }
 
@@ -405,35 +406,46 @@ form#login, form#signUp {
 
 }
 
-
-
 .choices {
 
     display: flex;
-    justify-content: center;
-    margin-top: 100px;
+    justify-content: flex-end;
+    margin-top: 70px;
     padding:0;
 }
 
-.signlog-choice {
+/* .signlog-choice {
 
     display: flex;
     padding: 0;
     justify-content: center;
    
-}
+} */
 
 .list-choice {
 
     text-decoration: none;
-    padding: 5px 15px;
+    padding: 5px 5px;
     margin: 10px;
-    border-radius: 5px;
-    background-color: rgb(91, 172, 204);
+    /* border-radius: 50px; */
     outline: none;
     border:none;
-    
-}
+    /* border:2px solid rgb(91, 172, 204); */
+    background-color: white;
+    }
+
+    .list-choice:hover {
+
+        text-decoration: none;
+        padding: 5px 5px;
+        margin: 10px;
+        border-radius: 50px;
+        outline: none;
+        border:2px solid rgb(91, 172, 204);
+        background-color: white;
+        transform: scale(1.1);
+        
+    }
 
 .list-choice.active {
 
@@ -446,7 +458,6 @@ form#login, form#signUp {
     color: red;
     text-decoration: none;
     font-weight: bold;
-    font-family:'karla', sans-serif ;
     letter-spacing: 0.2em;
 
 }
@@ -525,16 +536,7 @@ label {
    
 }
 
-/* .item-name input, .category input {
 
-    width:200px;
-   
-} */
-
-/* .group input {
-
-    width:50px;
-} */
 
 .add-btn, .login-btn, .oops-btn, .signup-btn, .create-item-btn, .clear-btn {
 
@@ -547,6 +549,7 @@ label {
     background-color: red;
     cursor: pointer;
     color: white;
+    font-weight: bold;
    
 }
 
@@ -563,7 +566,11 @@ label {
     margin-top: 15px;
     margin-left: 50%;
     transform: translate(-50%);
-    
+}
+
+.signup-btn:hover, .login-btn:hover{
+    transform: translate(-50%) scale(1.1);
+   
 }
 
 .add-btn {
