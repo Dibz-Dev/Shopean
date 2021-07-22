@@ -1,5 +1,5 @@
 const Profile = require('../models/Profile');
-const Item = require('../models/Items');
+const Item = require('../models/Item');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
