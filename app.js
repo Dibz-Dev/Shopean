@@ -27,6 +27,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 app.set('view engine', 'ejs');
 
 
+
+
 // ---------MIDDLEWARE----------
 
 app.use(express.static('public'));
