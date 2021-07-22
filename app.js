@@ -18,7 +18,7 @@ const app = express()
 const dbURI = process.env.API_KEY;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-.then((result) => app.listen(3000))
+.then((result) => app.listen(process.env.PORT || 3000))
 .catch((err) => console.log(err))
 
 
