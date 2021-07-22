@@ -10,7 +10,7 @@ const Profile = require('./models/Profile');
 require('dotenv').config();
 
 
-// ----------- SCHEMA MODELS-----------
+// ----------- SCHEMA MODELS----------
 
 
 
