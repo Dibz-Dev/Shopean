@@ -6,6 +6,7 @@ const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const { pageAuth, displayUser } = require('./authMiddle/pageAuth');
 const Item = require('./models/Items');
+const Profile = require('./models/Profile');
 require('dotenv').config();
 
 

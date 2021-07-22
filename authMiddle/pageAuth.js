@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const Profile = require('../models/Profiles');
+const Profile = require('../models/Profile');
 
 const pageAuth = (req, res, next) => {
     const token = req.cookies.jwt;
