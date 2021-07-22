@@ -18,7 +18,7 @@ const app = express()
 const dbURI = process.env.API_KEY;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-.then((result) => console.log('connected to DB')
+.then((result) => app.listen(3000))
 .catch((err) => console.log(err))
 
 
@@ -26,7 +26,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 // ---------ENGINE--------------
 app.set('view engine', 'ejs');
 
-app.listen(process.env.PORT || 3000)
+
 
 
 // ---------MIDDLEWARE----------
