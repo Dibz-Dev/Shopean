@@ -6,8 +6,8 @@ const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const { pageAuth, displayUser } = require('./authMiddle/pageAuth');
 const Item = require('./models/Item');
-const Profile = require('./models/Profile');
-const dotEnv = require('dotenv').config();
+const Profile = require('./models/Profile')
+require('dotenv').config();
 
 
 // ----------- SCHEMA MODELS----------
