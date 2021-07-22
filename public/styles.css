@@ -199,6 +199,15 @@ h4 {
     /* border:1px solid red; */
 }
 
+@media (min-width: 900px) {
+
+    .results-list {
+        width:100%;
+       
+        
+    }
+}
+
 .results-list.open {
     width:80%;
     height:30px;
