@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const { pageAuth, displayUser } = require('./authMiddle/pageAuth');
 const Item = require('./models/Item');
 const Profile = require('./models/Profile');
-require('dotenv').config();
+const dotEnv = require('dotenv').config();
 
 
 // ----------- SCHEMA MODELS----------
