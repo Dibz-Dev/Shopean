@@ -10,7 +10,7 @@ router.get('/login', authController.login_get);
 router.post('/login', authController.login_post);
 router.get('/logout', authController.logout_get);
 router.get('/getItem', authController.getItem_get);
-router.get('/', authController.cover_get);
+router.get('/cover', authController.cover_get);
 
 
 
