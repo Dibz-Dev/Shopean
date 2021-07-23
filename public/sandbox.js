@@ -47,8 +47,8 @@ closeModal.addEventListener('click', () => {modalClose() });
 
 // ------------FETCH API-----------------------------
 
-// const api_Url = "http://localhost:3000/getItem";
-const api_Url = "https://shopean.herokuapp.com/getItem";
+const api_Url = "http://localhost:3000/getItem";
+// const api_Url = "https://shopean.herokuapp.com/getItem";
 
 
 // ---------------GENERATE HTML FUNCTIONS------------------
@@ -151,7 +151,7 @@ const generateNewHtml = (matches) => {
 // ---------------------TYPING DB LOOK UP EVENT--------------------
 
 form.addEventListener('input', () => {
-  console.log(api_Url)
+  
   getItem(form.item.value) 
   resultsList.classList.remove('collapse')
 

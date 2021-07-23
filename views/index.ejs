@@ -18,8 +18,12 @@
     <div>
        <div class="form-container">
             <form id="form-search" action="/home"  method="GET" class="form-style" >
-                <input id="item-input" type="text" autofocus required name="item" minlength="2" maxlength="14" class="search-item" placeholder="What do you need?" autocomplete="off">
+                <div class="search-input-wrapper">
+                    <input id="item-input" type="text" autofocus required name="item" minlength="2" maxlength="14" class="search-item" placeholder="What do you need?" autocomplete="off">
+                    <button class="search-form-btn">Add</button>
+                </div>
                 <div id="results-list" class="results-list"></div>
+                
             </form>
         </div>
         
