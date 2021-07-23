@@ -48,13 +48,14 @@ closeModal.addEventListener('click', () => {modalClose() });
 // ------------FETCH API-----------------------------
 
 // const api_Url = "http://localhost:3000/getItem";
-// const api_URL = "https://shopean.herokuapp.com/getItem";
-const api_URL = "https://localhost:5000/getItem";
+const api_Url = "https://shopean.herokuapp.com/getItem";
+// const api_Url = "https://localhost:5000/getItem";
 
 
 // ---------------GENERATE HTML FUNCTIONS------------------
 
 const getItem = async searchText => {
+  
 
         const query = await fetch(api_Url)
         const data = await query.json()
@@ -151,7 +152,7 @@ const generateNewHtml = (matches) => {
 // ---------------------TYPING DB LOOK UP EVENT--------------------
 
 form.addEventListener('input', () => {
-  
+  console.log(api_Url)
   getItem(form.item.value) 
   resultsList.classList.remove('collapse')
 
