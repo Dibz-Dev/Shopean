@@ -48,8 +48,8 @@ closeModal.addEventListener('click', () => {modalClose() });
 // ------------FETCH API-----------------------------
 
 // const api_Url = "http://localhost:3000/getItem";
-const api_URL = "https://shopean.herokuapp.com/getItem";
-// const api_URL = "https://localhost:5000/getItem";
+// const api_URL = "https://shopean.herokuapp.com/getItem";
+const api_URL = "https://localhost:5000/getItem";
 
 
 // ---------------GENERATE HTML FUNCTIONS------------------
