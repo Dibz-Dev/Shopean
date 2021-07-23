@@ -142,7 +142,7 @@ input.search-item {
         background-color: rgb(91, 172, 204);
         border: none;
         outline: none;
-        margin-left: -35px;
+        margin-left: -39px;
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
     }
@@ -789,7 +789,7 @@ label {
         
         display: flex;
         position: fixed;
-        margin-top: -135px;
+        top: 0%;
         width:100%;
         justify-content: space-around;
         background-color: rgba(204, 231, 240, 0.959);
@@ -801,7 +801,7 @@ label {
    .menu-options.active {
         display: flex;
         position: fixed;
-        margin-top: 1px;
+        top:10%;
         background-color: rgba(204, 231, 240, 0.959);
         transition: 0.3s;
         height:55px;
