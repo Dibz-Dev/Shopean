@@ -151,6 +151,7 @@ const generateNewHtml = (matches) => {
 // ---------------------TYPING DB LOOK UP EVENT--------------------
 
 form.addEventListener('input', () => {
+  
   getItem(form.item.value) 
   resultsList.classList.remove('collapse')
 
