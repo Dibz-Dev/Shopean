@@ -51,6 +51,40 @@ body {
 
 }
 
+/* ------------------------------------NAV BAR------------------------------------------ */
+
+.page-wrapper{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 20;
+    
+}
+
+.site-header-container{
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    color:white;
+    background-color: rgb(91, 172, 204);
+    height:65px;
+    position: fixed;
+    top:0%;
+    left:0%;
+    width:100%;
+    z-index: 5;
+}
+
+.site-header{
+    font-family:'pacifico', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-left: 10px;
+    
+    }
+
+
 
 
     /* ------------------------FORM/INPUT---------------------------------------- */
@@ -108,7 +142,7 @@ input.search-item {
         background-color: rgb(91, 172, 204);
         border: none;
         outline: none;
-        margin-left: -37px;
+        margin-left: -35px;
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
     }
