@@ -59,9 +59,6 @@ const getItem = async (req, res, next) => {
 
 app.use(authRoutes);
 
-
-
-
 app.use((req, res) => {
     res.render('404')
 })
