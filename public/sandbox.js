@@ -47,8 +47,8 @@ closeModal.addEventListener('click', () => {modalClose() });
 
 // ------------FETCH API-----------------------------
 
-// const api_Url = "http://localhost:3000/getItem";
-const api_Url = "https://shopean.herokuapp.com/getItem";
+const api_Url = "http://localhost:3000/getItem";
+// const api_Url = "https://shopean.herokuapp.com/getItem";
 
 
 // ---------------GENERATE HTML FUNCTIONS------------------
@@ -223,25 +223,25 @@ form.addEventListener('submit', (e) => {
     }
      
      
-     setTimeout(() => {
+    //  setTimeout(() => {
 
-      const store = document.getElementById('shopping-section')
-      localStorage.setItem('elements', store.innerHTML)
+    //   const store = document.getElementById('shopping-section')
+    //   localStorage.setItem('elements', store.innerHTML)
     
-    },300);
+    // },300);
     
     form.reset();
     
   });
 
-  const getStorage = () => {
+//   const getStorage = () => {
 
-    if(localStorage.getItem('elements')) {
-      dropDown.innerHTML = localStorage.getItem('elements')
-     } 
-  }
+//     if(localStorage.getItem('elements')) {
+//       dropDown.innerHTML = localStorage.getItem('elements')
+//      } 
+//   }
 
- getStorage()
+//  getStorage()
 
 //  -----------------------------CREATE ITEM FORM---------------------------------
 

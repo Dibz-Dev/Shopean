@@ -127,7 +127,7 @@ input.search-item {
  
     
 }
-::placeholder {
+.search-input::placeholder {
 
     color:rgb(214, 210, 210);
     padding-left: 5px;
@@ -557,7 +557,7 @@ label {
     padding-top: 5px;
     color: white;
     z-index: 5;
-    background-color: white;
+  
 
    
 }
