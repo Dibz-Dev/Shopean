@@ -45,6 +45,32 @@ const modalClose = () => {
 openModal.addEventListener('click', () => {modalOpen() });
 closeModal.addEventListener('click', () => {modalClose() });
 
+//  --------------------------------MENU DROPDOWN--------------------------------------
+
+
+menuBar.addEventListener('click', () => { 
+
+  const menuChildren = Array.from(menuBar.children);
+
+  menuChildren.forEach(bar => {
+  bar.classList.toggle('active')
+ 
+})
+menuOptions.classList.toggle('active')
+})
+
+menuOptions.addEventListener('click', () => {
+
+menuOptions.classList.remove('active')
+
+const menuChildren = Array.from(menuBar.children)
+
+menuChildren.forEach(bar => {
+bar.classList.remove('active')
+})
+
+})
+
 // ------------FETCH API-----------------------------
 
 // const api_Url = "http://localhost:3000/getItem";
@@ -291,31 +317,7 @@ body.addEventListener('click', e => {
  
 
 
-//  --------------------------------MENU DROPDOWN--------------------------------------
 
-
-menuBar.addEventListener('click', () => { 
-
-    const menuChildren = Array.from(menuBar.children);
-
-    menuChildren.forEach(bar => {
-    bar.classList.toggle('active')
-   
-})
-menuOptions.classList.toggle('active')
-})
-
-menuOptions.addEventListener('click', () => {
-
-  menuOptions.classList.remove('active')
-
-  const menuChildren = Array.from(menuBar.children)
-
-  menuChildren.forEach(bar => {
-  bar.classList.remove('active')
-  })
-
-})
 
 
 
