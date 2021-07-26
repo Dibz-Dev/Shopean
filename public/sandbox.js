@@ -15,11 +15,21 @@ const clearList = document.querySelector('#clear-btn')
 const topClear = document.querySelector('#top-menu-clear')
 const body = document.querySelector('body')
 
+
 // ------------FETCH API-----------------------------
 
-// const api_Url = "http://localhost:3000/getItem";
 const api_Url = "https://shopean.herokuapp.com/getItem";
 // const api_Url = "http://localhost:5000/getItem";
+
+const getStorage = () => {
+
+  if(localStorage.getItem('elements')) {
+    dropDown.innerHTML = localStorage.getItem('elements')
+   } 
+}
+
+getStorage()
+
 
 // ---------------------TYPING DB LOOK UP EVENT--------------------
 
@@ -54,36 +64,6 @@ const modalClose = () => {
   body.setAttribute('style', '')
 
 };
-
-openModal.addEventListener('click', () => {modalOpen() });
-closeModal.addEventListener('click', () => {modalClose() });
-
-//  --------------------------------MENU DROPDOWN--------------------------------------
-
-
-menuBar.addEventListener('click', () => { 
-
-  const menuChildren = Array.from(menuBar.children);
-
-  menuChildren.forEach(bar => {
-  bar.classList.toggle('active')
- 
-})
-menuOptions.classList.toggle('active')
-})
-
-menuOptions.addEventListener('click', () => {
-
-menuOptions.classList.remove('active')
-
-const menuChildren = Array.from(menuBar.children)
-
-menuChildren.forEach(bar => {
-bar.classList.remove('active')
-})
-
-})
-
 
 // ---------------GENERATE HTML FUNCTIONS------------------
 
@@ -177,14 +157,60 @@ let matches = data.filter(item => {
 
 };
 
+
+openModal.addEventListener('click', () => {modalOpen() });
+closeModal.addEventListener('click', () => {modalClose() });
+
+
+// -----------------------------HOME PAGE INPUT FORM SUBMIT EVENT----------------
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+const itemPattern = /[a-z]/;
+if(itemPattern.test(form.item.value))
+  {
+    outPut()
+  }
+   
+   setTimeout(() => {
+
+    const store = document.getElementById('shopping-section')
+    localStorage.setItem('elements', store.innerHTML)
   
-
-
+  },300);
   
-
-
-
+  form.reset();
   
+});
+
+
+//  --------------------------------MENU DROPDOWN--------------------------------------
+
+
+menuBar.addEventListener('click', () => { 
+
+  const menuChildren = Array.from(menuBar.children);
+
+  menuChildren.forEach(bar => {
+  bar.classList.toggle('active')
+ 
+})
+menuOptions.classList.toggle('active')
+})
+
+menuOptions.addEventListener('click', () => {
+
+menuOptions.classList.remove('active')
+
+const menuChildren = Array.from(menuBar.children)
+
+menuChildren.forEach(bar => {
+bar.classList.remove('active')
+})
+
+})
+
 // --------------DB ITEM AS FORM VALUE--------------------
 
 
@@ -203,7 +229,9 @@ resultsList.addEventListener('click', e => {
       
   })
 
-//---------------REMOVE LOCAL STORAGE ----------------------------- 
+
+
+  //---------------REMOVE LOCAL STORAGE ----------------------------- 
 
 const clearContents = () => {
 
@@ -219,9 +247,6 @@ const clearContents = () => {
 
 }
 
-
-
-
 clearList.addEventListener('click', () => {
 
   clearContents()
@@ -233,45 +258,6 @@ topClear.addEventListener('click', () => {
   clearContents()
 
 })
-
-
-
-  
-
-// -----------------------------HOME PAGE INPUT FORM SUBMIT EVENT----------------
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
-
- 
-    
-  const itemPattern = /[a-z]/;
-  if(itemPattern.test(form.item.value))
-    {
-      outPut()
-    }
-     
-     
-     setTimeout(() => {
-
-      const store = document.getElementById('shopping-section')
-      localStorage.setItem('elements', store.innerHTML)
-    
-    },300);
-    
-    form.reset();
-    
-  });
-
-  const getStorage = () => {
-
-    if(localStorage.getItem('elements')) {
-      dropDown.innerHTML = localStorage.getItem('elements')
-     } 
-  }
-
- getStorage()
-
 
  //  ---------------------------CHECK UNCHECK LIST BOX CLICK EVENTS---------------
 
