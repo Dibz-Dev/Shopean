@@ -254,7 +254,9 @@ h4 {
     width:80%;
     margin:auto;
     transition: 1s;
-    /* border:1px solid red; */
+    background-color: red;
+    height:50px;
+    
 }
 
 @media (min-width: 900px) {
@@ -393,7 +395,7 @@ h4 {
  .shopping-wrapper{
 
     position:relative;
-    display:none;
+    /* display:none; */
    
    
 } 
