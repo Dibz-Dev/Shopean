@@ -78,14 +78,7 @@ const api_Url = "https://shopean.herokuapp.com/getItem";
 // const api_Url = "http://localhost:5000/getItem";
 
 
-// ---------------------TYPING DB LOOK UP EVENT--------------------
 
-form.addEventListener('input', () => {
-  
-  getItem(form.item.value) 
-  resultsList.classList.remove('collapse')
-
-})
 
 // ---------------GENERATE HTML FUNCTIONS------------------
 
@@ -183,6 +176,14 @@ const generateNewHtml = (matches) => {
       }
   }
 
+
+  // ---------------------TYPING DB LOOK UP EVENT--------------------
+
+form.addEventListener('keyup', () => {
+  getItem(form.item.value) 
+  resultsList.classList.remove('collapse')
+
+})
 
 
 
