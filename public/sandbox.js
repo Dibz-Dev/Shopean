@@ -18,8 +18,8 @@ const body = document.querySelector('body')
 
 // ------------FETCH API-----------------------------
 
-const api_Url = "https://shopean.herokuapp.com/getItem";
-// const api_Url = "http://localhost:5000/getItem";
+// const api_Url = "https://shopean.herokuapp.com/getItem";
+const api_Url = "http://localhost:5000/getItem";
 
 const getStorage = () => {
 
@@ -164,25 +164,25 @@ closeModal.addEventListener('click', () => {modalClose() });
 
 // -----------------------------HOME PAGE INPUT FORM SUBMIT EVENT----------------
 
-// form.addEventListener('submit', (e) => {
-//   e.preventDefault()
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
 
-// const itemPattern = /[a-z]/;
-// if(itemPattern.test(form.item.value))
-//   {
-//     outPut()
-//   }
+const itemPattern = /[a-z]/;
+if(itemPattern.test(form.item.value))
+  {
+    outPut()
+  }
    
-//    setTimeout(() => {
+   setTimeout(() => {
 
-//     const store = document.getElementById('shopping-section')
-//     localStorage.setItem('elements', store.innerHTML)
+    const store = document.getElementById('shopping-section')
+    localStorage.setItem('elements', store.innerHTML)
   
-//   },300);
+  },300);
   
-//   form.reset();
+  form.reset();
   
-// });
+});
 
 
 //  --------------------------------MENU DROPDOWN--------------------------------------
@@ -265,7 +265,7 @@ body.addEventListener('click', e => {
 
   const store = document.getElementById('shopping-section')
  
-  const collapse = e.target.parentElement.parentElement.parentElement.parentElement;
+  // const collapse = e.target.parentElement.parentElement.parentElement.parentElement;
 
 
 
@@ -279,9 +279,9 @@ body.addEventListener('click', e => {
   }
 
 
-  if(e.target.parentElement.parentElement.children.length <= 1 && e.target.classList.contains('close')) {
-      collapse.classList.remove('active');
-  }
+  // if(e.target.parentElement.parentElement.children.length <= 1 && e.target.classList.contains('close')) {
+  //     collapse.classList.remove('active');
+  // }
 
   
  

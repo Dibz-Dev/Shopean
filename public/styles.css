@@ -114,7 +114,7 @@ body {
 
     display:flex;
     justify-content: center;
-    height:34px;
+    /* height:34px; */
 }
 
 input.search-item {
