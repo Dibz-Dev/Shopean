@@ -114,6 +114,7 @@ body {
 
     display:flex;
     justify-content: center;
+    height:34px;
 }
 
 input.search-item {
@@ -124,7 +125,7 @@ input.search-item {
     border-top-left-radius: 20px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-    height:30px;
+    /* height:27px; */
     color: black;
     font-family: 'karla', sans-serif;
     outline: none;
@@ -136,13 +137,13 @@ input.search-item {
     .search-form-btn {
         
        
-        right:0%;
-        height:34px;
+        
+        /* height:33px; */
         color: white;
         background-color: rgb(91, 172, 204);
         border: none;
         outline: none;
-        margin-left: -39px;
+        margin-left: -37px;
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
     }
@@ -801,10 +802,10 @@ label {
    .menu-options.active {
         display: flex;
         position: fixed;
-        top:10%;
+        top:12%;
         background-color: rgba(204, 231, 240, 0.959);
         transition: 0.3s;
-        height:55px;
+        /* height:55px; */
         
        
        
