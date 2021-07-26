@@ -15,10 +15,16 @@ const clearList = document.querySelector('#clear-btn')
 const topClear = document.querySelector('#top-menu-clear')
 const body = document.querySelector('body')
 
+// ------------FETCH API-----------------------------
+
+// const api_Url = "http://localhost:3000/getItem";
+const api_Url = "https://shopean.herokuapp.com/getItem";
+// const api_Url = "http://localhost:5000/getItem";
+
 // ---------------------TYPING DB LOOK UP EVENT--------------------
 
-form.addEventListener('touchStart', () => {
-  console.log('working')
+form.addEventListener('input', () => {
+ 
   getItem(form.item.value) 
   resultsList.classList.remove('collapse')
 
@@ -78,16 +84,21 @@ bar.classList.remove('active')
 
 })
 
-// ------------FETCH API-----------------------------
-
-// const api_Url = "http://localhost:3000/getItem";
-const api_Url = "https://shopean.herokuapp.com/getItem";
-// const api_Url = "http://localhost:5000/getItem";
-
-
-
 
 // ---------------GENERATE HTML FUNCTIONS------------------
+
+const generateTemplate = (matches) => {
+  
+  if(matches.length > 0) {
+    const html = matches.map(match => 
+      ` <div class="results-items"><h5 class="item-auto-style">${match.item}</h5></div>`
+     ).join('');
+    resultsList.innerHTML = html;
+
+  } else if (matches.length <= 0) {
+    resultsList.innerHTML = '<p style="color: red;">Please enter a valid item or click on the "Menu" button to create a new item</p>';
+  }
+};
 
 const getItem = async searchText => {
   
@@ -110,21 +121,28 @@ const getItem = async searchText => {
   
 };
 
+const generateNewHtml = (matches) => {
 
-
-const generateTemplate = (matches) => {
-  
+ 
   if(matches.length > 0) {
-    const html = matches.map(match => 
-      ` <div class="results-items"><h5 class="item-auto-style">${match.item}</h5></div>`
-     ).join('');
-    resultsList.innerHTML = html;
+       const html = matches.map(match => 
+      `
+      <li class="uncheck ${matches[0].category}">${matches[0].item}<span class="close">&times;</span></li>
+      ` 
+      ).join();
 
-  } else if (matches.length <= 0) {
-    resultsList.innerHTML = '<p style="color: red;">Please enter a valid item or click on the "Menu" button to create a new item</p>';
-  }
-}
-
+      const clearBtn = document.querySelector('.clear-btn')
+      const ul = document.querySelectorAll('ul');
+      
+      ul.forEach(list => {
+       if(list.classList.contains(`${matches[0].category}`) ) {
+          list.innerHTML += html;
+          list.parentElement.parentElement.classList.add('active')
+          clearBtn.classList.add('active')
+          }
+        })
+      }
+};
 
 const outPut = async () => {
 
@@ -160,28 +178,6 @@ let matches = data.filter(item => {
 };
 
   
-const generateNewHtml = (matches) => {
-
- 
-  if(matches.length > 0) {
-       const html = matches.map(match => 
-      `
-      <li class="uncheck ${matches[0].category}">${matches[0].item}<span class="close">&times;</span></li>
-      ` 
-      ).join();
-
-      const clearBtn = document.querySelector('.clear-btn')
-      const ul = document.querySelectorAll('ul');
-      
-      ul.forEach(list => {
-       if(list.classList.contains(`${matches[0].category}`) ) {
-          list.innerHTML += html;
-          list.parentElement.parentElement.classList.add('active')
-          clearBtn.classList.add('active')
-          }
-        })
-      }
-  }
 
 
   
@@ -276,12 +272,6 @@ form.addEventListener('submit', (e) => {
 
  getStorage()
 
-//  -----------------------------CREATE ITEM FORM---------------------------------
-
-
-
-
-
 
  //  ---------------------------CHECK UNCHECK LIST BOX CLICK EVENTS---------------
 
@@ -303,9 +293,9 @@ body.addEventListener('click', e => {
   }
 
 
-  // if(e.target.parentElement.parentElement.children.length <= 1 && e.target.classList.contains('close')) {
-  //     collapse.classList.remove('active');
-  // }
+  if(e.target.parentElement.parentElement.children.length <= 1 && e.target.classList.contains('close')) {
+      collapse.classList.remove('active');
+  }
 
   
  
@@ -316,7 +306,7 @@ body.addEventListener('click', e => {
 
  
     
-  // localStorage.setItem('elements', store.innerHTML)
+  localStorage.setItem('elements', store.innerHTML)
 
 
  
