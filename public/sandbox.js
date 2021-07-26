@@ -32,8 +32,59 @@ getStorage()
 
 
 // ---------------------TYPING DB LOOK UP EVENT--------------------
+const outPut = async () => {
 
-form.addEventListener('input', () => {
+  let formValue = form.item.value;
+  let query = await fetch(api_Url)
+  let data = await query.json()
+  
+  let matches = data.filter(item => {
+  
+    if(item.item.match(formValue)) {
+      return item.item.match(formValue)
+      } else {
+     return
+    }
+
+})
+  if(matches.length > 0) {
+  resultsList.innerHTML =  `<p style="color: green;">Item has been added</p>`
+  resultsList.classList.add('class', 'open')
+ }
+ setTimeout(() => {
+   
+  resultsList.innerHTML = '';
+  resultsList.classList.remove('open')
+  resultsList.classList.add('class', 'collapse')
+ }, 1000)
+ generateNewHtml(matches)
+
+};
+
+const getItem = async searchText => {
+  
+
+  let query = await fetch(api_Url)
+  let data = await query.json()
+
+let matches = data.filter(item => {
+  let regex = new RegExp(`^${searchText}`, 'gi');
+  return item.item.match(regex) || item.category.match(regex);
+});
+
+if(searchText.length === 0) { 
+    matches = [];
+    resultsList.innerHTML = '';
+}
+
+generateTemplate(matches);
+
+
+};
+
+
+
+itemInput.addEventListener('input', () => {
  
   getItem(form.item.value) 
   resultsList.classList.remove('collapse')
@@ -80,26 +131,6 @@ const generateTemplate = (matches) => {
   }
 };
 
-const getItem = async searchText => {
-  
-
-        let query = await fetch(api_Url)
-        let data = await query.json()
-
-    let matches = data.filter(item => {
-        let regex = new RegExp(`^${searchText}`, 'gi');
-        return item.item.match(regex) || item.category.match(regex);
-    });
-
-    if(searchText.length === 0) { 
-          matches = [];
-          resultsList.innerHTML = '';
-      }
-
-    generateTemplate(matches);
-   
-  
-};
 
 const generateNewHtml = (matches) => {
 
@@ -124,38 +155,6 @@ const generateNewHtml = (matches) => {
       }
 };
 
-const outPut = async () => {
-
-  let formValue = form.item.value;
-
-  let query = await fetch(api_Url)
-  let data = await query.json()
-
-  
-let matches = data.filter(item => {
-  
-    if(item.item.match(formValue)) {
-      return item.item.match(formValue)
-      
-    } else {
-     return
-    }
-
-})
-
- if(matches.length > 0) {
- resultsList.innerHTML =  `<p style="color: green;">Item has been added</p>`
- resultsList.classList.add('class', 'open')
- }
- setTimeout(() => {
-   
-  resultsList.innerHTML = '';
-  resultsList.classList.remove('open')
-  resultsList.classList.add('class', 'collapse')
- }, 1000)
- generateNewHtml(matches)
-
-};
 
 
 openModal.addEventListener('click', () => {modalOpen() });
