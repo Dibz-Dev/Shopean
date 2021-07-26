@@ -70,7 +70,7 @@ const modalClose = () => {
 const generateTemplate = (matches) => {
   
   if(matches.length > 0) {
-    const html = matches.map(match => 
+    let html = matches.map(match => 
       ` <div class="results-items"><h5 class="item-auto-style">${match.item}</h5></div>`
      ).join('');
     resultsList.innerHTML = html;
@@ -83,11 +83,11 @@ const generateTemplate = (matches) => {
 const getItem = async searchText => {
   
 
-        const query = await fetch(api_Url)
-        const data = await query.json()
+        let query = await fetch(api_Url)
+        let data = await query.json()
 
     let matches = data.filter(item => {
-        const regex = new RegExp(`^${searchText}`, 'gi');
+        let regex = new RegExp(`^${searchText}`, 'gi');
         return item.item.match(regex) || item.category.match(regex);
     });
 
@@ -126,10 +126,10 @@ const generateNewHtml = (matches) => {
 
 const outPut = async () => {
 
-  const formValue = form.item.value;
+  let formValue = form.item.value;
 
-  const query = await fetch(api_Url)
-  const data = await query.json()
+  let query = await fetch(api_Url)
+  let data = await query.json()
 
   
 let matches = data.filter(item => {
@@ -167,7 +167,7 @@ closeModal.addEventListener('click', () => {modalClose() });
 form.addEventListener('submit', (e) => {
   e.preventDefault()
 
-const itemPattern = /[a-z]/;
+let itemPattern = /[a-z]/;
 if(itemPattern.test(form.item.value))
   {
     outPut()
@@ -175,7 +175,7 @@ if(itemPattern.test(form.item.value))
    
    setTimeout(() => {
 
-    const store = document.getElementById('shopping-section')
+    var store = document.getElementById('shopping-section')
     localStorage.setItem('elements', store.innerHTML)
   
   },300);
@@ -279,9 +279,9 @@ body.addEventListener('click', e => {
   }
 
 
-  // if(e.target.parentElement.parentElement.children.length <= 1 && e.target.classList.contains('close')) {
-  //     collapse.classList.remove('active');
-  // }
+  if(e.target.parentElement.parentElement.children.length <= 1 && e.target.classList.contains('close')) {
+      collapse.classList.remove('active');
+  }
 
   
  
