@@ -84,12 +84,12 @@ generateTemplate(matches);
 
 
 
-itemInput.addEventListener('click', () => {
+itemInput.addEventListener('input', () => {
 
-  alert('FINALLY ITS DOING SOMETHING')
+  
  
-  // getItem(form.item.value) 
-  // resultsList.classList.remove('collapse')
+  getItem(form.item.value) 
+  resultsList.classList.remove('collapse')
 
 })
 
@@ -167,6 +167,7 @@ closeModal.addEventListener('click', () => {modalClose() });
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
+  alert('FINALLY ITS DOING SOMETHING')
 
 let itemPattern = /[a-z]/;
 if(itemPattern.test(form.item.value))
