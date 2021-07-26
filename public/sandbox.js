@@ -175,7 +175,7 @@ const generateNewHtml = (matches) => {
       ul.forEach(list => {
        if(list.classList.contains(`${matches[0].category}`) ) {
           list.innerHTML += html;
-          list.parentElement.parentElement.classList.add('active')
+          // list.parentElement.parentElement.classList.add('active')
           clearBtn.classList.add('active')
           }
         })
@@ -245,12 +245,14 @@ topClear.addEventListener('click', () => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
+
+    outPut()
     
-  const itemPattern = /[a-z]/;
-  if(itemPattern.test(form.item.value))
-    {
-      outPut()
-    }
+  // const itemPattern = /[a-z]/;
+  // if(itemPattern.test(form.item.value))
+  //   {
+  //     outPut()
+  //   }
      
      
     //  setTimeout(() => {
