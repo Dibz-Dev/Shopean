@@ -18,8 +18,8 @@ const body = document.querySelector('body')
 
 // ------------FETCH API-----------------------------
 
-// const api_Url = "https://shopean.herokuapp.com/getItem";
-const api_Url = "http://localhost:5000/getItem";
+const api_Url = "https://shopean.herokuapp.com/getItem";
+// const api_Url = "http://localhost:5000/getItem";
 
 const getStorage = () => {
 
@@ -84,10 +84,12 @@ generateTemplate(matches);
 
 
 
-itemInput.addEventListener('input', () => {
+itemInput.addEventListener('click', () => {
+
+  alert('FINALLY ITS DOING SOMETHING')
  
-  getItem(form.item.value) 
-  resultsList.classList.remove('collapse')
+  // getItem(form.item.value) 
+  // resultsList.classList.remove('collapse')
 
 })
 
