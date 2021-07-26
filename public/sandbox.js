@@ -17,7 +17,7 @@ const body = document.querySelector('body')
 
 // ---------------------TYPING DB LOOK UP EVENT--------------------
 
-form.addEventListener('input', () => {
+form.addEventListener('touchStart', () => {
   console.log('working')
   getItem(form.item.value) 
   resultsList.classList.remove('collapse')
