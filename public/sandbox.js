@@ -15,7 +15,13 @@ const clearList = document.querySelector('#clear-btn')
 const topClear = document.querySelector('#top-menu-clear')
 const body = document.querySelector('body')
 
+// ---------------------TYPING DB LOOK UP EVENT--------------------
 
+form.addEventListener('input', () => {
+  getItem(form.item.value) 
+  resultsList.classList.remove('collapse')
+
+})
 
 //--------------CREATE ITEM MODALS----------------------------
 
@@ -74,8 +80,8 @@ bar.classList.remove('active')
 // ------------FETCH API-----------------------------
 
 // const api_Url = "http://localhost:3000/getItem";
-const api_Url = "https://shopean.herokuapp.com/getItem";
-// const api_Url = "http://localhost:5000/getItem";
+// const api_Url = "https://shopean.herokuapp.com/getItem";
+const api_Url = "http://localhost:5000/getItem";
 
 
 
@@ -177,13 +183,7 @@ const generateNewHtml = (matches) => {
   }
 
 
-  // ---------------------TYPING DB LOOK UP EVENT--------------------
-
-form.addEventListener('keyup', () => {
-  getItem(form.item.value) 
-  resultsList.classList.remove('collapse')
-
-})
+  
 
 
 
