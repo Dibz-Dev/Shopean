@@ -802,15 +802,24 @@ label {
    .menu-options.active {
         display: flex;
         position: fixed;
-        top:12%;
+        top:10%;
         background-color: rgba(204, 231, 240, 0.959);
         transition: 0.3s;
-        /* height:55px; */
+        height:55px;
         
-       
-       
+    }
 
-   }
+    @media (min-height: 680px) {
+
+        .menu-options.active {
+      
+            top: 8%;
+            
+        }
+
+    }
+
+   
 
    .menu-options p {
       font-weight: 800;
