@@ -136,9 +136,6 @@ input.search-item {
 
     .search-form-btn {
         
-       
-        
-        /* height:33px; */
         color: white;
         background-color: rgb(91, 172, 204);
         border: none;
@@ -146,6 +143,7 @@ input.search-item {
         margin-left: -37px;
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
+        cursor: pointer;
     }
 
     @media (min-width:600px) {

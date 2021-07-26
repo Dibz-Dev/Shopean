@@ -18,6 +18,7 @@ const body = document.querySelector('body')
 // ---------------------TYPING DB LOOK UP EVENT--------------------
 
 form.addEventListener('input', () => {
+  console.log('working')
   getItem(form.item.value) 
   resultsList.classList.remove('collapse')
 
@@ -175,7 +176,7 @@ const generateNewHtml = (matches) => {
       ul.forEach(list => {
        if(list.classList.contains(`${matches[0].category}`) ) {
           list.innerHTML += html;
-          // list.parentElement.parentElement.classList.add('active')
+          list.parentElement.parentElement.classList.add('active')
           clearBtn.classList.add('active')
           }
         })
@@ -248,32 +249,32 @@ form.addEventListener('submit', (e) => {
 
     outPut()
     
-  // const itemPattern = /[a-z]/;
-  // if(itemPattern.test(form.item.value))
-  //   {
-  //     outPut()
-  //   }
+  const itemPattern = /[a-z]/;
+  if(itemPattern.test(form.item.value))
+    {
+      outPut()
+    }
      
      
-    //  setTimeout(() => {
+     setTimeout(() => {
 
-    //   const store = document.getElementById('shopping-section')
-    //   localStorage.setItem('elements', store.innerHTML)
+      const store = document.getElementById('shopping-section')
+      localStorage.setItem('elements', store.innerHTML)
     
-    // },300);
+    },300);
     
     form.reset();
     
   });
 
-//   const getStorage = () => {
+  const getStorage = () => {
 
-//     if(localStorage.getItem('elements')) {
-//       dropDown.innerHTML = localStorage.getItem('elements')
-//      } 
-//   }
+    if(localStorage.getItem('elements')) {
+      dropDown.innerHTML = localStorage.getItem('elements')
+     } 
+  }
 
-//  getStorage()
+ getStorage()
 
 //  -----------------------------CREATE ITEM FORM---------------------------------
 
