@@ -243,7 +243,7 @@ topClear.addEventListener('click', () => {
 form.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    outPut()
+ 
     
   const itemPattern = /[a-z]/;
   if(itemPattern.test(form.item.value))
