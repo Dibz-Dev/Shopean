@@ -167,7 +167,7 @@ closeModal.addEventListener('click', () => {modalClose() });
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
-  alert('FINALLY ITS DOING SOMETHING')
+ 
 
 let itemPattern = /[a-z]/;
 if(itemPattern.test(form.item.value))
@@ -177,7 +177,7 @@ if(itemPattern.test(form.item.value))
    
    setTimeout(() => {
 
-    var store = document.getElementById('shopping-section')
+   let store = document.getElementById('shopping-section')
     localStorage.setItem('elements', store.innerHTML)
   
   },300);
