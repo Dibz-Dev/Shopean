@@ -28,7 +28,7 @@ const getStorage = () => {
    } 
 }
 
-getStorage()
+// getStorage()
 
 
 // ---------------------TYPING DB LOOK UP EVENT--------------------
@@ -175,12 +175,12 @@ if(itemPattern.test(form.item.value))
     outPut()
   }
    
-   setTimeout(() => {
+  //  setTimeout(() => {
 
-   let store = document.getElementById('shopping-section')
-    localStorage.setItem('elements', store.innerHTML)
+  //  let store = document.getElementById('shopping-section')
+  //   localStorage.setItem('elements', store.innerHTML)
   
-  },300);
+  // },300);
   
   form.reset();
   
