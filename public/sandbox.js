@@ -84,7 +84,7 @@ generateTemplate(matches);
 
 
 
-itemInput.addEventListener('input', () => {
+itemInput.addEventListener('keydown', () => {
 
   
  
