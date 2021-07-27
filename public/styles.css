@@ -28,7 +28,7 @@ body {
 
 .welcome-message {
 
-    margin-top: 140px;
+    /* margin-top: 140px; */
     font-family: 'karla', sans-serif;
     font-size: 1em;
     padding: 0 25px;
