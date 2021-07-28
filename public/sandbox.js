@@ -15,6 +15,7 @@ const topClear = document.querySelector('#top-menu-clear')
 const body = document.querySelector('body')
 
 
+
 // ------------FETCH API-----------------------------
 
 const api_Url = "https://shopean.herokuapp.com/getItem";
@@ -193,6 +194,7 @@ menuBar.addEventListener('click', () => {
 
   menuChildren.forEach(bar => {
   bar.classList.toggle('active')
+  alert('where are ya')
  
 })
 menuOptions.classList.toggle('active')
