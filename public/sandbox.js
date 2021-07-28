@@ -14,7 +14,7 @@ const clearList = document.querySelector('#clear-btn')
 const topClear = document.querySelector('#top-menu-clear')
 const body = document.querySelector('body')
 
-alert('whattt')
+
 
 // ------------FETCH API-----------------------------
 
@@ -124,7 +124,7 @@ form.addEventListener('input', () => {
 
   getItem(form.item.value) 
 
-  // resultsList.classList.remove('collapse')
+  resultsList.classList.remove('collapse')
 
 })
 
@@ -164,23 +164,23 @@ closeModal.addEventListener('click', () => {modalClose() });
 form.addEventListener('submit', (e) => {
   e.preventDefault()
 
-  alert('come on!!!!!!!!!!!!!')
  
-// outPut()
-// let itemPattern = /[a-z]/;
-// if(itemPattern.test(form.item.value))
-//   {
-//     outPut()
-//   }
+ 
+outPut()
+let itemPattern = /[a-z]/;
+if(itemPattern.test(form.item.value))
+  {
+    outPut()
+  }
    
-  //  setTimeout(() => {
+   setTimeout(() => {
 
-  //  let store = document.getElementById('shopping-section')
-  //   localStorage.setItem('elements', store.innerHTML)
+   let store = document.getElementById('shopping-section')
+    localStorage.setItem('elements', store.innerHTML)
   
-  // },300);
+  },300);
   
-  // form.reset();
+  form.reset();
   
 });
 
@@ -266,7 +266,7 @@ body.addEventListener('click', e => {
 
   const store = document.getElementById('shopping-section')
  
-  // const collapse = e.target.parentElement.parentElement.parentElement.parentElement;
+  const collapse = e.target.parentElement.parentElement.parentElement.parentElement;
 
 
 
