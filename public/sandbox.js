@@ -17,8 +17,8 @@ const body = document.querySelector('body')
 
 // ------------FETCH API-----------------------------
 
-const api_Url = "https://shopean.herokuapp.com/getItem";
-// const api_Url = "http://localhost:5000/getItem";
+// const api_Url = "https://shopean.herokuapp.com/getItem";
+const api_Url = "http://localhost:5000/getItem";
 
 const getStorage = () => {
 
@@ -31,6 +31,43 @@ const getStorage = () => {
 
 
 // ---------------------TYPING DB LOOK UP EVENT--------------------
+
+const generateNewHtml = (matches) => {
+
+ 
+  if(matches.length > 0) {
+       const html = matches.map(match => 
+      `
+      <li class="uncheck ${matches[0].category}">${matches[0].item}<span class="close">&times;</span></li>
+      ` 
+      ).join();
+
+      const clearBtn = document.querySelector('.clear-btn')
+      const ul = document.querySelectorAll('ul');
+      
+      ul.forEach(list => {
+       if(list.classList.contains(`${matches[0].category}`) ) {
+          list.innerHTML += html;
+          list.parentElement.parentElement.classList.add('active')
+          clearBtn.classList.add('active')
+          }
+        })
+      }
+};
+
+const generateTemplate = (matches) => {
+  
+  if(matches.length > 0) {
+    let html = matches.map(match => 
+      ` <div class="results-items"><h5 class="item-auto-style">${match.item}</h5></div>`
+     ).join('');
+    resultsList.innerHTML = html;
+
+  } else if (matches.length <= 0) {
+    resultsList.innerHTML = '<p style="color: red;">Please enter a valid item or click on the "Menu" button to create a new item</p>';
+  }
+};
+
 const outPut = async () => {
 
   let formValue = form.item.value;
@@ -48,12 +85,11 @@ const outPut = async () => {
 })
   if(matches.length > 0) {
   resultsList.innerHTML =  `<p style="color: green;">Item has been added</p>`
-  resultsList.classList.add('class', 'open')
+
  }
  setTimeout(() => {
    
   resultsList.innerHTML = '';
-  resultsList.classList.remove('open')
   resultsList.classList.add('class', 'collapse')
  }, 1000)
  generateNewHtml(matches)
@@ -83,7 +119,7 @@ generateTemplate(matches);
 
 
 
-form.addEventListener('keydown', () => {
+form.addEventListener('touchstart', () => {
 
   
  
@@ -118,45 +154,6 @@ const modalClose = () => {
 };
 
 // ---------------GENERATE HTML FUNCTIONS------------------
-
-const generateTemplate = (matches) => {
-  
-  if(matches.length > 0) {
-    let html = matches.map(match => 
-      ` <div class="results-items"><h5 class="item-auto-style">${match.item}</h5></div>`
-     ).join('');
-    resultsList.innerHTML = html;
-
-  } else if (matches.length <= 0) {
-    resultsList.innerHTML = '<p style="color: red;">Please enter a valid item or click on the "Menu" button to create a new item</p>';
-  }
-};
-
-
-const generateNewHtml = (matches) => {
-
- 
-  if(matches.length > 0) {
-       const html = matches.map(match => 
-      `
-      <li class="uncheck ${matches[0].category}">${matches[0].item}<span class="close">&times;</span></li>
-      ` 
-      ).join();
-
-      const clearBtn = document.querySelector('.clear-btn')
-      const ul = document.querySelectorAll('ul');
-      
-      ul.forEach(list => {
-       if(list.classList.contains(`${matches[0].category}`) ) {
-          list.innerHTML += html;
-          list.parentElement.parentElement.classList.add('active')
-          clearBtn.classList.add('active')
-          }
-        })
-      }
-};
-
-
 
 openModal.addEventListener('click', () => {modalOpen() });
 closeModal.addEventListener('click', () => {modalClose() });
