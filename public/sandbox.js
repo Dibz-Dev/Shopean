@@ -191,7 +191,7 @@ menuBar.addEventListener('click', () => {
 
   menuChildren.forEach(bar => {
   bar.classList.toggle('active')
-  alert('where are ya')
+  
  
 })
 menuOptions.classList.toggle('active')
