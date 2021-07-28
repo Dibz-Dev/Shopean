@@ -4,7 +4,6 @@ const closeModal = document.querySelector('#close-circle')
 const form = document.querySelector('#form-search');
 const createForm = document.querySelector('#add-item');
 
-const itemInput = document.querySelector('#item-input');
 const resultsList = document.querySelector('#results-list');
 const singleItem = document.querySelector('h5.item-auto-style');
 const ul = document.querySelectorAll('ul');
@@ -84,7 +83,7 @@ generateTemplate(matches);
 
 
 
-itemInput.addEventListener('keydown', () => {
+form.addEventListener('keydown', () => {
 
   
  
