@@ -28,7 +28,7 @@ const getStorage = () => {
    } 
 }
 
-// getStorage()
+getStorage()
 
 
 // ---------------------TYPING DB LOOK UP EVENT--------------------
@@ -88,11 +88,11 @@ const outPut = async () => {
   resultsList.innerHTML =  `<p style="color: green;">Item has been added</p>`
 
  }
-//  setTimeout(() => {
+ setTimeout(() => {
    
-//   resultsList.innerHTML = '';
-//   resultsList.classList.add('class', 'collapse')
-//  }, 1000)
+  resultsList.innerHTML = '';
+  resultsList.classList.add('class', 'collapse')
+ }, 1000)
  generateNewHtml(matches)
 
 };
