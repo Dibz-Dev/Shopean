@@ -41,6 +41,7 @@ app.use(cookieParser());
 
 // ----------- ROUTES ------------
 app.get('*', displayUser);
+
 const getItem = async (req, res, next) => {
     let item
     try {

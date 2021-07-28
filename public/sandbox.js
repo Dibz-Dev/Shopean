@@ -119,12 +119,11 @@ generateTemplate(matches);
 
 
 
-form.addEventListener('touchstart', () => {
+form.addEventListener('input', () => {
 
-  
- 
   getItem(form.item.value) 
-  resultsList.classList.remove('collapse')
+
+  // resultsList.classList.remove('collapse')
 
 })
 
@@ -164,12 +163,12 @@ closeModal.addEventListener('click', () => {modalClose() });
 form.addEventListener('submit', (e) => {
   e.preventDefault()
  
-
-let itemPattern = /[a-z]/;
-if(itemPattern.test(form.item.value))
-  {
-    outPut()
-  }
+outPut()
+// let itemPattern = /[a-z]/;
+// if(itemPattern.test(form.item.value))
+//   {
+//     outPut()
+//   }
    
   //  setTimeout(() => {
 
@@ -178,7 +177,7 @@ if(itemPattern.test(form.item.value))
   
   // },300);
   
-  form.reset();
+  // form.reset();
   
 });
 
