@@ -162,8 +162,10 @@ closeModal.addEventListener('click', () => {modalClose() });
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
+
+  alert('come on!!!!!!!!!!!!!')
  
-outPut()
+// outPut()
 // let itemPattern = /[a-z]/;
 // if(itemPattern.test(form.item.value))
 //   {
