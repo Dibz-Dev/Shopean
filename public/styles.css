@@ -28,7 +28,7 @@ body {
 
 .welcome-message {
 
-    margin-top: 100px;
+    margin-top: 140px;
     font-family: 'karla', sans-serif;
     font-size: 1em;
     padding: 0 25px;
@@ -114,7 +114,6 @@ body {
 
     display:flex;
     justify-content: center;
-    /* height:34px; */
 }
 
 input.search-item {
@@ -179,7 +178,6 @@ li {
      
     display:none;
     grid-template-columns: auto;
-    /* grid-template-columns: repeat(auto-fill,minmax(30px, 1fr)); */
     grid-template-rows: auto;
     border: 3px solid rgb(91, 172, 204);
     border-radius: 10px;
@@ -472,23 +470,15 @@ form#login, form#signUp {
     padding:0;
 }
 
-/* .signlog-choice {
 
-    display: flex;
-    padding: 0;
-    justify-content: center;
-   
-} */
 
 .list-choice {
 
     text-decoration: none;
     padding: 5px 5px;
     margin: 10px;
-    /* border-radius: 50px; */
     outline: none;
     border:none;
-    /* border:2px solid rgb(91, 172, 204); */
     background-color: white;
     }
 

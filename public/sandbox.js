@@ -92,7 +92,7 @@ const outPut = async () => {
    
   resultsList.innerHTML = '';
   resultsList.classList.add('class', 'collapse')
- }, 1000)
+ }, 2000)
  generateNewHtml(matches)
 
 };
