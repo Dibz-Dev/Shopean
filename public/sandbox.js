@@ -164,9 +164,6 @@ closeModal.addEventListener('click', () => {modalClose() });
 form.addEventListener('submit', (e) => {
   e.preventDefault()
 
- 
- 
-outPut()
 let itemPattern = /[a-z]/;
 if(itemPattern.test(form.item.value))
   {
@@ -216,7 +213,7 @@ bar.classList.remove('active')
 
 
 resultsList.addEventListener('click', e => {
-        if(e.target.classList.contains('results-items')) {
+        if(e.target.classList.contains('results-items') || e.target.classList.contains('item-auto-style')) {
           
           const text = e.target.innerHTML;
           const textTwo = e.target.innerText;
