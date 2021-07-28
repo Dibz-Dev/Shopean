@@ -14,7 +14,7 @@ const clearList = document.querySelector('#clear-btn')
 const topClear = document.querySelector('#top-menu-clear')
 const body = document.querySelector('body')
 
-
+alert('whattt')
 
 // ------------FETCH API-----------------------------
 
