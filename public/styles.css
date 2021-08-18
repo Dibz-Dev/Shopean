@@ -120,8 +120,8 @@ input.search-item {
     
     font-size: 1.4em;
     border: 2px solid rgb(91, 172, 204);
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     /* height:27px; */
@@ -489,7 +489,6 @@ form#login, form#signUp {
         margin: 10px;
         border-radius: 50px;
         outline: none;
-        border:2px solid rgb(91, 172, 204);
         background-color: white;
         transform: scale(1.1);
         
@@ -591,8 +590,8 @@ label {
 
     margin-top: 5px;
     margin: auto;
-    padding:5px 15px;
-    border-radius: 5px;
+    padding:10px 15px;
+    border-radius: 10px;
     outline: none;
     border: 1px solid lightblue;
     background-color: red;
