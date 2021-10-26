@@ -177,8 +177,8 @@ li {
 .sub-flex-container {
      
     display:none;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
+    /* grid-template-columns: auto;
+    grid-template-rows: auto; */
     border: 3px solid rgb(91, 172, 204);
     border-radius: 10px;
     justify-content: center;
@@ -189,7 +189,8 @@ li {
 
 .sub-flex-container.active {
 
-    display:grid;
+    display:flex;
+    flex-direction: column;
     
     
     

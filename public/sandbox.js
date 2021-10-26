@@ -19,7 +19,7 @@ const body = document.querySelector('body')
 // ------------FETCH API-----------------------------
 
 const api_Url = "https://shopean.herokuapp.com/getItem";
-// const api_Url = "http://localhost:5000/getItem";
+// const api_Url = "http://localhost:3000/getItem";
 
 const getStorage = () => {
 

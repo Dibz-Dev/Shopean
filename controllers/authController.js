@@ -77,12 +77,14 @@ module.exports.home_post = (req, res) => {
     }
 
 
- module.exports.cover_get = (req, res) => {
-        res.render('cover') }
+module.exports.cover_get = (req, res) => {
+        res.render('cover') 
+}
 
  
 module.exports.home_get = (req, res) => {
-    res.render('index') }
+    res.render('index') 
+}
    
 module.exports.signup_get = (req, res) => {
     res.render('signup')
@@ -120,7 +122,7 @@ module.exports.login_post = async (req, res) => {
   }
   catch (err) {
       const errors = handleErrors(err);
-    res.status(400).json({ errors })
+      res.status(400).json({ errors })
   }
 
 }

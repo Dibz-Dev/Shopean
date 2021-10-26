@@ -36,6 +36,7 @@ const signUp = document.querySelector('#signUp');
 const emailError = document.querySelector('.email-error');
 const passwordError = document.querySelector('.password-error');
 
+
 signUp.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -46,7 +47,9 @@ signUp.addEventListener('submit', async (e) => {
     const firstname = signUp.firstname.value;
     const email = signUp.email.value;
     const password = signUp.password.value;
+    
 
+   
     try {
 
         const res = await fetch('/signup', {
@@ -57,6 +60,7 @@ signUp.addEventListener('submit', async (e) => {
 
         const data = await res.json();
         console.log(data)
+       
 
         if(data.errors) {
             emailError.textContent = data.errors.email;
@@ -65,6 +69,7 @@ signUp.addEventListener('submit', async (e) => {
         }
         if(data.profile) {
             location.assign('/login')
+
         }
      }
     catch (err) {
